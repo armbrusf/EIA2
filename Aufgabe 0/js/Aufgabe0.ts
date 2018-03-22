@@ -4,4 +4,4 @@ function Namensfeld(): void {
     document.getElementById("input").innerHTML =
       "Dein Name ist " + name + ". Wieso auch nicht?";
   }
-}
+    }
