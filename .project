@@ -14,16 +14,4 @@
 	<natures>
 		<nature>com.palantir.typescript.typeScriptNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Boxen/BoxenTypeScript.pdf</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Library/Mobile%20Documents/com~apple~Pages/Documents/Boxen%20TypeScript.pdf</locationURI>
-		</link>
-		<link>
-			<name>Boxen/boxen.png</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/boxen.png</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
