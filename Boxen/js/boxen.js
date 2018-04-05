@@ -1,5 +1,5 @@
-var Boxees;
-(function (Boxees) {
+document.addEventListener("DOMContentLoaded", init);
+function init() {
     let n = 5;
     let c;
     let x = 0;
@@ -38,5 +38,5 @@ var Boxees;
         s.left = _x + "px";
         s.top = _y + "px";
     }
-})(Boxees || (Boxees = {}));
+}
 //# sourceMappingURL=boxen.js.map

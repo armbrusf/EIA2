@@ -1,4 +1,6 @@
-namespace Boxees {
+document.addEventListener("DOMContentLoaded", init);
+
+function init(): void {
     let n: number = 5;
     let c: string;
     let x: number = 0;
@@ -26,8 +28,7 @@ namespace Boxees {
                 break;
         }
     }
-
-
+    
     function placeDiv(_color: string, _x: number, _y: number, _width: number, _height: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
