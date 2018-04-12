@@ -11,6 +11,9 @@ var Aufgabe2;
     }
     function doubleCardContent(x) {
         for (let i = 0; i < x; i++) {
+            let content = cardContent[0];
+            cardsFinal.push(content);
+            cardsFinal.push(content);
         }
     }
 })(Aufgabe2 || (Aufgabe2 = {}));

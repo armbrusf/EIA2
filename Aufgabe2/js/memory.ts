@@ -17,6 +17,9 @@ namespace Aufgabe2 {
     
     function doubleCardContent( x : number) : void {
         for (let i : number = 0; i < x; i++){
+            let content : string = cardContent[0];
+            cardsFinal.push (content)
+            cardsFinal.push (content)
             
             }
         }
