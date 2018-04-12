@@ -17,7 +17,7 @@ namespace Aufgabe2 {
         }   
         
     function createCards(_cardContent:string[]) : string[] {
-        let clone : string = _cardContent.slice(0);
+        let clone : string[] = _cardContent.slice(0);
         for (let i : number = 0; i < clone.length; i++) {
             _cardContent.push(clone[i])
             }
