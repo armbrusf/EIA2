@@ -1,47 +1,57 @@
 namespace Aufgabe2 {
-    
+
     //Funktion wird ausgeführt wennn DOM geladen ist.
-    
-    let cardContent : string[] = ["A","B","C","D","E","F","G","H","I","J"];
-    let cardsFinal : string[] = [];
-    
-    function userSetting() : void {
-        
-        let inputPlayer : string = prompt ("Spieleranzahl","");
-        let inputPlayerNum : number = parseInt(inputPlayer);
-        
-        let inputPairs : string = prompt ("Kartenanzahl","");
-        let inputPairsNum : number = parseInt(inputPairs);
-        
+
+    let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    let cardContentNew: string[] = [];
+    let numPairsFinal: number;
+    let numPlayersFinal: number;
+
+    for (let i: number = 0; i < 200; i++) {
+        console.log("1")
+
+        let numPlayers: string = prompt("Spieleranzahl", "1-4");
+        numPlayersFinal = parseInt(numPlayers);
+        let numPairs: string = prompt("Kartenpaare", "1-10");
+        numPairsFinal = parseInt(numPairs);
+
+
+        if ((numPlayersFinal == 1 || numPlayersFinal == 2 || numPlayersFinal == 3 || numPlayersFinal == 4
+        ) && (numPairsFinal == 1 || numPairsFinal == 2 || numPairsFinal == 3 || numPairsFinal == 4
+            || numPairsFinal == 5 || numPairsFinal == 6 || numPairsFinal == 7 || numPairsFinal == 8
+            || numPairsFinal == 9 || numPairsFinal == 10)) {
+            break;
         }
-    
-    function doubleCardContent( x : number) : void {
-        for (let i : number = 0; i < x; i++){
-            let content : string = cardContent[0];
-            cardsFinal.push (content)
-            cardsFinal.push (content)
-            
-            }
+        else {
+            alert("Falsche Eingabe")
+            continue;
         }
+
+    }
+
+    function createCrads(_numPairsFinal: number): void {
+        for (let i: number = 0; i > _numPairsFinal; i++) {
+            //let min : number = 0;
+            //let random: number = Math.random() * (_numPairsFinal - min) + _numPairsFinal;
+            //console.log(_numPairsFinal)
+            cardContentNew.splice(0, 0, cardContent[i]);
+            cardContentNew.splice(1, 0, cardContent[i]);
+
+
+        }
+        console.log(cardContentNew);
+
+    }
+
     
-    
-    
+    createCrads(numPairsFinal);
 }
-        
-          
-    
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+/*
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
