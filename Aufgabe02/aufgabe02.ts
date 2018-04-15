@@ -1,6 +1,8 @@
-/* Aufgabe: 2 - Memory Name: Sophie Köperl Matrikel:257762 Datum: 15.04.2018 
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde
-nicht kopiert und auch nicht diktiert. */
+/* Aufgabe: Aufgabe 0
+        Name: Fabio Armbruster
+        Matrikel: 257708
+        Datum: 22.3.2018
+        Hiermit versichere ich, dass der Code in Zusammenarbeit erstellt wurde. */
 
 namespace Memory {
 
@@ -87,7 +89,7 @@ namespace Memory {
     }
 
 
-    
+
     //Karten erstellen
     function creatCards(_numPairs: number): void {
         let node: any = document.getElementById("spielfeld");
@@ -110,7 +112,7 @@ namespace Memory {
         }
     }
 
-    
+
 
     //Status der Karten
     function randomStatus(): string {
