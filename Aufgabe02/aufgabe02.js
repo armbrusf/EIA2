@@ -7,7 +7,7 @@ var Memory;
 (function (Memory) {
     let numPlayers;
     let numPairs;
-    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     let cardPush = [];
     let cardShuffle = [];
     var numPairsInt;
@@ -33,13 +33,13 @@ var Memory;
     }
     //Kartenpaare
     function Pair() {
-        var numPairs = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 26");
+        var numPairs = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 10");
         numPairsInt = parseInt(numPairs);
-        if (numPairsInt >= 1 && numPairsInt <= 26) {
+        if (numPairsInt >= 1 && numPairsInt <= 10) {
             return numPairsInt;
         }
         else {
-            alert("Deine Zahl liegt nicht zwischen 1 und 26");
+            alert("Deine Zahl liegt nicht zwischen 1 und 10");
             Pair();
         }
     }
@@ -49,12 +49,9 @@ var Memory;
         let node = document.getElementById("spielernamen");
         let childNodeHTML;
         for (let i = 0; i < _numPlayer; i++) {
-            childNodeHTML = "<form class='namen'>";
-            childNodeHTML += "<label for='vname'=Name:>";
-            childNodeHTML += "<input type='text' id='vname' name='vname'>";
-            childNodeHTML += "<button class='button' type='button'>Enter</button>";
-            childNodeHTML += "</label>";
-            childNodeHTML += "</form>";
+            childNodeHTML = "<p class='namen'>";
+            childNodeHTML += "spieler " + (i + 1);
+            childNodeHTML += "</p>";
             node.innerHTML += childNodeHTML;
         }
     }
