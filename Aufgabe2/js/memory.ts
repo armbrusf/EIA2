@@ -16,10 +16,7 @@ namespace Aufgabe2 {
         numPairsFinal = parseInt(numPairs);
 
 
-        if ((numPlayersFinal == 1 || numPlayersFinal == 2 || numPlayersFinal == 3 || numPlayersFinal == 4
-        ) && (numPairsFinal == 1 || numPairsFinal == 2 || numPairsFinal == 3 || numPairsFinal == 4
-            || numPairsFinal == 5 || numPairsFinal == 6 || numPairsFinal == 7 || numPairsFinal == 8
-            || numPairsFinal == 9 || numPairsFinal == 10)) {
+        if ((numPlayersFinal >= 1 && numPlayersFinal <= 4) && (numPairsFinal >= 1 && numPairsFinal <= 10)) {
             break;
         }
         else {
@@ -30,28 +27,28 @@ namespace Aufgabe2 {
     }
 
     function createCrads(_numPairsFinal: number): void {
-        for (let i: number = 0; i > _numPairsFinal; i++) {
-            //let min : number = 0;
-            //let random: number = Math.random() * (_numPairsFinal - min) + _numPairsFinal;
-            //console.log(_numPairsFinal)
-            cardContentNew.splice(0, 0, cardContent[i]);
-            cardContentNew.splice(1, 0, cardContent[i]);
-
+        for (let i: number = 0; i < _numPairsFinal; i++) {
+            let min: number = 0;
+            let random: number = Math.random() * (_numPairsFinal - min);
+            cardContentNew.splice(random, 0, cardContent[i]);
+            cardContentNew.splice(random, 0, cardContent[i]);
 
         }
         console.log(cardContentNew);
-
     }
-
-    
     createCrads(numPairsFinal);
+    placeDiv(numPairsFinal);
+
+    function placeDiv(_numPairsFinal: number): void {
+        for (let i: number = 0; i < _numPairsFinal; i++) {
+            let div: HTMLDivElement = document.createElement("div");
+            div.innerText = cardContent[i];
+            document.body.appendChild(div);
+        }
+    }
+    
+    
 }
 
 
 
-
-
-/*
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
