@@ -69,7 +69,7 @@ var Memory;
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
         let i = 0;
-        for (let i = 0; i < _numPairs * 2; i++) {
+        for (let i = 2; i < _numPairs * 2; i++) {
             let min = 0;
             let max = (cardPush.length * 2);
             let randomeStatusFinal = randomStatus();
