@@ -12,7 +12,7 @@ namespace Memory {
     let cardPush: string[] = [];
     var numPairsInt: number;
     var numPlayerInt: number;
-   
+
 
     document.addEventListener('DOMContentLoaded', main);
 
@@ -66,7 +66,7 @@ namespace Memory {
         for (let i: number = 0; i < _numPlayer; i++) {
 
             childNodeHTML = "<p class='namen'>";
-            childNodeHTML += "spieler " + (i +1)
+            childNodeHTML += "spieler " + (i + 1)
             childNodeHTML += "</p>";
             node.innerHTML += childNodeHTML;
         }
@@ -97,8 +97,8 @@ namespace Memory {
         for (let i: number = 0; i < _numPairs * 2; i++) {
             let min: number = 0;
             let max: number = (cardPush.length * 2);
-            let randomeStatusFinal : string = randomStatus()
-          
+            let randomeStatusFinal: string = randomStatus()
+
 
             var random: number = Math.floor(Math.random() * cardPush.length);
             console.log(random)
@@ -108,7 +108,7 @@ namespace Memory {
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
-            
+
             cardPush.splice(random, 1)
         }
         console.log(cardPush)
