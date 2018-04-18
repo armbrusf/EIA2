@@ -1,5 +1,5 @@
 html {
-	background-color: #fff9b7;
+	background-color: #b0b5b2;
 }
 
 .namen {
@@ -13,7 +13,7 @@ header{
 }
 
 .cardhidden{
-	background-color: #e1d200;
+	background-color: #aa1735;
 	color: #e1d200;
 	float: left;
 	height: 5em;
@@ -39,7 +39,7 @@ header{
 	float: left;
 	height: 5em;
 	width: 5em;
-	background-color:#e1d200;
+	background-color:#b0b5b2;
 	margin: 1.5em;
 	text-align: center;
 	padding: 2em;
