@@ -9,18 +9,17 @@ var Memory;
     let numPairs;
     let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     let cardPush = [];
-    let cardShuffle = [];
     var numPairsInt;
     var numPlayerInt;
     document.addEventListener('DOMContentLoaded', main);
     function main() {
-        Player();
+        player();
         creatCardList(numPairsInt);
         enterName(numPlayerInt);
         creatCards(numPairsInt);
     }
     //Spieleranzahl
-    function Player() {
+    function player() {
         var numPlayer = prompt("Gewünschte Anzahl der Spieler   min. 1 | max. 4", "");
         numPlayerInt = parseInt(numPlayer);
         if (numPlayerInt >= 1 && numPlayerInt <= 4) {
@@ -28,11 +27,11 @@ var Memory;
         }
         else {
             alert("Deine Zahl liegt nicht zwischen 1 und 4");
-            Player();
+            player();
         }
     }
     //Kartenpaare
-    function Pair() {
+    function pair() {
         var numPairs = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 10");
         numPairsInt = parseInt(numPairs);
         if (numPairsInt >= 1 && numPairsInt <= 10) {
@@ -40,10 +39,10 @@ var Memory;
         }
         else {
             alert("Deine Zahl liegt nicht zwischen 1 und 10");
-            Pair();
+            pair();
         }
     }
-    let amount = Pair();
+    let amount = pair();
     //Spielernamen erstellen
     function enterName(_numPlayer) {
         let node = document.getElementById("spielernamen");
@@ -63,6 +62,7 @@ var Memory;
             cardPush.push(content);
             var remove = cardContent.splice(0, 1);
         }
+        console.log(cardPush);
     }
     //Karten erstellen
     function creatCards(_numPairs) {
@@ -72,14 +72,18 @@ var Memory;
         for (let i = 0; i < _numPairs * 2; i++) {
             let min = 0;
             let max = (cardPush.length * 2);
+            let randomeStatusFinal = randomStatus();
             var random = Math.floor(Math.random() * cardPush.length);
-            childNodeHTML = "<div  class='card" + randomStatus() + "' id='Karte" + i + "'>";
+            console.log(random);
+            childNodeHTML = "<div  class='card" + randomeStatusFinal + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
             childNodeHTML += cardPush[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
+            cardPush.splice(random, 1);
         }
+        console.log(cardPush);
     }
     //Status der Karten
     function randomStatus() {
