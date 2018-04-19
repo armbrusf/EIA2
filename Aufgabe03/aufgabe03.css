@@ -1,0 +1,47 @@
+html {
+	background-color: #fff9b7;
+}
+
+.namen {
+	display: inline;
+	padding: 7%;
+}
+
+header{
+	background-color: #FFF;
+	padding: 1em;
+}
+
+.cardhidden{
+	background-color: #e1d200;
+	color: #e1d200;
+	float: left;
+	height: 5em;
+	width: 5em;
+	margin: 1.5em;
+	text-align: center;
+	padding: 2em;
+}
+
+.cardtaken {
+	background-color: #fff9b7;
+	color: #fff9b7;
+	border: black;
+	float: left;
+	height: 5em;
+	width: 5em;
+	margin: 1.5em;
+	text-align: center;
+	padding: 2em;
+}
+
+.cardvisible{
+	float: left;
+	height: 5em;
+	width: 5em;
+	background-color:#e1d200;
+	margin: 1.5em;
+	text-align: center;
+	padding: 2em;
+	color: #FFF;
+}
