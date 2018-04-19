@@ -12,7 +12,7 @@ namespace Aufgabe3 {
     let cardPush: string[] = [];
     var numPairsInt: number;
     var numPlayerInt: number;
-    
+
 
 
     document.addEventListener('DOMContentLoaded', main);
@@ -95,10 +95,11 @@ namespace Aufgabe3 {
         let childNodeHTML: string;
         let i: number = 0;
 
-        for (let i: number = 2; i < _numPairs * 2; i++) {
+        for (let i: number = 0; i < _numPairs * 2; i++) {
             let min: number = 0;
             let max: number = (cardPush.length * 2);
-            let randomeStatusFinal: string = randomStatus()
+            //let randomeStatusFinal: string = randomStatus()
+            let randomeStatusFinal: string = "hidden"
 
 
             var random: number = Math.floor(Math.random() * cardPush.length);
@@ -108,25 +109,30 @@ namespace Aufgabe3 {
             childNodeHTML += cardPush[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
+            
+            
             node.innerHTML += childNodeHTML;
+
+
+            let divListener = document.getElementsByClassName("cardhidden");
+
+            for (let i2: number = 0; i2 < divListener.length; i2++) {
+                divListener[i2].addEventListener("click", cardStatus)
+            }
 
             cardPush.splice(random, 1)
         }
         console.log(cardPush)
+
+
     }
 
 
 
     //Status der Karten
-    function randomStatus(): string {
-        let randomStatus: number = Math.random();
-        if (randomStatus <= .5) {
-            return "hidden";
-        } else if (randomStatus > .5 && randomStatus <= .75) {
-            return "taken";
-        } else if (randomStatus > .75) {
-            return "visible";
-        }
+    function cardStatus(): void {
+        console.log("Es funktioniert")
+
     }
 
 }

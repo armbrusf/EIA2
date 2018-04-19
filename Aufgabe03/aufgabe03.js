@@ -69,10 +69,11 @@ var Aufgabe3;
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
         let i = 0;
-        for (let i = 2; i < _numPairs * 2; i++) {
+        for (let i = 0; i < _numPairs * 2; i++) {
             let min = 0;
             let max = (cardPush.length * 2);
-            let randomeStatusFinal = randomStatus();
+            //let randomeStatusFinal: string = randomStatus()
+            let randomeStatusFinal = "hidden";
             var random = Math.floor(Math.random() * cardPush.length);
             console.log(random);
             childNodeHTML = "<div  class='card" + randomeStatusFinal + "' id='Karte" + i + "'>";
@@ -81,22 +82,17 @@ var Aufgabe3;
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
+            let divListener = document.getElementsByClassName("cardhidden");
+            for (let i2 = 0; i2 < divListener.length; i2++) {
+                divListener[i2].addEventListener("click", cardStatus);
+            }
             cardPush.splice(random, 1);
         }
         console.log(cardPush);
     }
     //Status der Karten
-    function randomStatus() {
-        let randomStatus = Math.random();
-        if (randomStatus <= .5) {
-            return "hidden";
-        }
-        else if (randomStatus > .5 && randomStatus <= .75) {
-            return "taken";
-        }
-        else if (randomStatus > .75) {
-            return "visible";
-        }
+    function cardStatus() {
+        console.log("Es funktioniert");
     }
 })(Aufgabe3 || (Aufgabe3 = {}));
 //# sourceMappingURL=aufgabe03.js.map
