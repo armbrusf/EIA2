@@ -1,26 +1,25 @@
-/* Aufgabe: Aufgabe 3
-        Name: Fabio Armbruster
-        Matrikel: 257708
-        Datum: 22.3.2018
-        Hiermit versichere ich, dass der Code in Zusammenarbeit erstellt wurde. */
-var Aufgabe3;
-(function (Aufgabe3) {
+var Memory;
+(function (Memory) {
     let numPlayers;
     let numPairs;
-    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let cardPush = [];
+    let cardOpen = [];
     var numPairsInt;
     var numPlayerInt;
+    let numCardsOpen = 0;
+    let openArray = [];
+    let takenCards = [];
     document.addEventListener('DOMContentLoaded', main);
+    //Hauptfunktion    
     function main() {
         player();
         creatCardList(numPairsInt);
         enterName(numPlayerInt);
-        creatCards(numPairsInt);
+        createCards(numPairsInt);
     }
-    //Spieleranzahl
     function player() {
-        var numPlayer = prompt("Gewünschte Anzahl der Spieler   min. 1 | max. 4", "");
+        var numPlayer = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
         numPlayerInt = parseInt(numPlayer);
         if (numPlayerInt >= 1 && numPlayerInt <= 4) {
             return numPlayerInt;
@@ -30,31 +29,35 @@ var Aufgabe3;
             player();
         }
     }
-    //Kartenpaare
+    //Kartenpaare eingeben
     function pair() {
-        var numPairs = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 10");
+        var numPairs = prompt("Wieviele Kaartenparre?   min. 1 | max. 26");
         numPairsInt = parseInt(numPairs);
-        if (numPairsInt >= 1 && numPairsInt <= 10) {
+        if (numPairsInt >= 1 && numPairsInt <= 26) {
             return numPairsInt;
         }
         else {
-            alert("Deine Zahl liegt nicht zwischen 1 und 10");
+            alert("Deine Zahl liegt nicht zwischen 1 und 26");
             pair();
         }
     }
     let amount = pair();
-    //Spielernamen erstellen
+    //Spielernamen erzeugen
     function enterName(_numPlayer) {
         let node = document.getElementById("spielernamen");
         let childNodeHTML;
         for (let i = 0; i < _numPlayer; i++) {
-            childNodeHTML = "<p class='namen'>";
-            childNodeHTML += "spieler " + (i + 1);
+            childNodeHTML = "<div>";
+            childNodeHTML += "<h2>";
+            childNodeHTML += "<p class='namen'>";
+            childNodeHTML += "Player " + i;
             childNodeHTML += "</p>";
+            childNodeHTML += "</h2>";
+            childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
         }
     }
-    //Inhalt erstellen
+    //Inhalt der Karten erzeugen    
     function creatCardList(x) {
         for (let i = 1; i <= x; i++) {
             var content = cardContent[0];
@@ -62,37 +65,71 @@ var Aufgabe3;
             cardPush.push(content);
             var remove = cardContent.splice(0, 1);
         }
-        console.log(cardPush);
     }
-    //Karten erstellen
-    function creatCards(_numPairs) {
+    //Karten erstell   
+    function createCards(_numPairs) {
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
         let i = 0;
         for (let i = 0; i < _numPairs * 2; i++) {
             let min = 0;
-            let max = (cardPush.length * 2);
-            //let randomeStatusFinal: string = randomStatus()
-            let randomeStatusFinal = "hidden";
-            var random = Math.floor(Math.random() * cardPush.length);
-            console.log(random);
-            childNodeHTML = "<div  class='card" + randomeStatusFinal + "' id='Karte" + i + "'>";
+            let max = (cardPush.length);
+            var random = Math.floor(Math.random() * Math.floor(max));
+            childNodeHTML = "<div  class='card" + "hidden" + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
             childNodeHTML += cardPush[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
-            let divListener = document.getElementsByClassName("cardhidden");
-            for (let i2 = 0; i2 < divListener.length; i2++) {
-                divListener[i2].addEventListener("click", cardStatus);
+            var remove = cardPush.splice(random, 1);
+            var status = document.getElementsByClassName("cardhidden");
+            for (let i = 0; i < status.length; i++) {
+                status[i].addEventListener("click", cardStatus);
             }
-            cardPush.splice(random, 1);
         }
-        console.log(cardPush);
     }
-    //Status der Karten
-    function cardStatus() {
-        console.log("Es funktioniert");
+    function cardStatus(_event) {
+        console.log("Test");
+        let t = _event.currentTarget;
+        if (numCardsOpen >= 0 && numCardsOpen < 2) {
+            if (t.className = "hidden") {
+                if (!(numCardsOpen > 2)) {
+                    if (t.className = "cardhidden") {
+                        t.classList.remove("cardhidden");
+                        t.classList.add("cardopen");
+                        numCardsOpen++;
+                    }
+                }
+                if (numCardsOpen == 2) {
+                    setTimeout(compareCards, 1500);
+                }
+                if (numCardsOpen > 2) {
+                    t.classList.remove("cardopen");
+                    t.classList.add("cardhidden");
+                }
+                function compareCards() {
+                    let karte1 = document.getElementsByClassName("cardopen")[0];
+                    let karte2 = document.getElementsByClassName("cardopen")[1];
+                    openArray.push(karte1, karte2);
+                    console.log(openArray);
+                    if (openArray[0].innerHTML == openArray[1].innerHTML) {
+                        openArray[0].classList.remove("cardopen");
+                        openArray[0].classList.add("cardtaken");
+                        openArray[1].classList.remove("cardopen");
+                        openArray[1].classList.add("cardtaken");
+                        console.log("Kartenpaar abeglegt");
+                    }
+                    else {
+                        openArray[0].classList.remove("cardopen");
+                        openArray[0].classList.add("cardhidden");
+                        openArray[1].classList.remove("cardopen");
+                        openArray[1].classList.add("cardhidden");
+                    }
+                    numCardsOpen = 0;
+                    openArray.splice(0, 2);
+                }
+            }
+        }
     }
-})(Aufgabe3 || (Aufgabe3 = {}));
+})(Memory || (Memory = {}));
 //# sourceMappingURL=aufgabe03.js.map

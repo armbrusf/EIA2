@@ -1,47 +1,71 @@
-html {
-	background-color: #fff9b7;
+.cardopen {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: white; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+	color: #D0A9F5;
+	position: relative;
+	font-family: Helvetica;
 }
 
-.namen {
-	display: inline;
-	padding: 7%;
-}
-
-header{
-	background-color: #FFF;
-	padding: 1em;
-}
-
-.cardhidden{
-	background-color: #e1d200;
-	color: #e1d200;
-	float: left;
-	height: 5em;
-	width: 5em;
-	margin: 1.5em;
-	text-align: center;
+.cardhidden {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: #D0A9F5; 
+	margin: 1.5em; 
+	text-align: center; 
 	padding: 2em;
+	
+	 
 }
+
+.cardhidden h3 {
+	color: #D0A9F5;
+	font-family: Helvetica;
+}
+
+
 
 .cardtaken {
-	background-color: #fff9b7;
-	color: #fff9b7;
-	border: black;
-	float: left;
-	height: 5em;
-	width: 5em;
-	margin: 1.5em;
-	text-align: center;
-	padding: 2em;
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: white; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+	color: white;
+	
 }
 
-.cardvisible{
-	float: left;
-	height: 5em;
-	width: 5em;
-	background-color:#e1d200;
-	margin: 1.5em;
-	text-align: center;
+.cardtaken h3 {
+	color: #fff;
+}
+
+
+.namen {
+	font-family: Helvetica;
+	color: #D0A9F5;
 	padding: 2em;
-	color: #FFF;
+	
+}
+#spielernamen {position: fixed;
+	left: 0;
+	top: 0;
+	text-align: center;
+	width: 30%;
+	height: 100%;
+	background-color: #F4F4F4;
+}
+#spielfeld {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 70%;
+	height: 100%;
+	overflow: auto;
 }
