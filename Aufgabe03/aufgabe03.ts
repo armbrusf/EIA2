@@ -130,6 +130,8 @@ namespace Memory {
 
 
     }
+
+    //Classe der Karten ändern wenn sie gedrückt werden
     function changeStatus(_event: MouseEvent): void {
         let target: HTMLElement = <HTMLElement>_event.currentTarget;
         console.log("Was machst du für ein blödsinn?" + target)
@@ -155,12 +157,12 @@ namespace Memory {
     }
 
 
-
+    // Karten vergleichen
     function compareCards(): void {
         let karte1: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("cardopen")[0];
         let karte2: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("cardopen")[1];
-        
-        
+
+
 
         openArray.push(karte1, karte2);
         console.log(openArray);
@@ -175,8 +177,8 @@ namespace Memory {
 
             console.log("Kartenpaar abeglegt");
             wonCards++;
-            
 
+            // Wenn alle Karten weg sind Jubeln
             if (wonCards == numPairs) {
                 alert("Glückwunsch, du bist ein Genius");
                 location.reload(true);

@@ -82,6 +82,7 @@ var Memory;
             }
         }
     }
+    //Classe der Karten ändern wenn sie gedrückt werden
     function changeStatus(_event) {
         let target = _event.currentTarget;
         console.log("Was machst du für ein blödsinn?" + target);
@@ -99,6 +100,7 @@ var Memory;
             }
         }
     }
+    // Karten vergleichen
     function compareCards() {
         let karte1 = document.getElementsByClassName("cardopen")[0];
         let karte2 = document.getElementsByClassName("cardopen")[1];
@@ -111,6 +113,7 @@ var Memory;
             openArray[1].classList.add("cardtaken");
             console.log("Kartenpaar abeglegt");
             wonCards++;
+            // Wenn alle Karten weg sind Jubeln
             if (wonCards == numPairs) {
                 alert("Glückwunsch, du bist ein Genius");
                 location.reload(true);
