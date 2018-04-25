@@ -1,28 +1,27 @@
 var Memory;
 (function (Memory) {
-    let numPlayers;
-    let numPairs;
-    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let cardPush = [];
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    let emtyArray = [];
     let cardOpen = [];
-    var numPairsInt;
-    var numPlayerInt;
+    let numPairs;
+    let numPlayer;
     let numCardsOpen = 0;
     let openArray = [];
     let takenCards = [];
+    let wonCards = 0;
     document.addEventListener('DOMContentLoaded', main);
     //Hauptfunktion    
     function main() {
         player();
-        creatCardList(numPairsInt);
-        enterName(numPlayerInt);
-        createCards(numPairsInt);
+        creatCardList(numPairs);
+        createPlayers(numPlayer);
+        createCards(numPairs);
     }
     function player() {
-        var numPlayer = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
-        numPlayerInt = parseInt(numPlayer);
-        if (numPlayerInt >= 1 && numPlayerInt <= 4) {
-            return numPlayerInt;
+        var numPlayerString = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
+        numPlayer = parseInt(numPlayerString);
+        if (numPlayer >= 1 && numPlayer <= 4) {
+            return numPlayer;
         }
         else {
             alert("Deine Zahl liegt nicht zwischen 1 und 4");
@@ -31,105 +30,100 @@ var Memory;
     }
     //Kartenpaare eingeben
     function pair() {
-        var numPairs = prompt("Wieviele Kaartenparre?   min. 1 | max. 26");
-        numPairsInt = parseInt(numPairs);
-        if (numPairsInt >= 1 && numPairsInt <= 26) {
-            return numPairsInt;
+        var numPairsString = prompt("Wieviele Kaartenparre?   min. 1 | max. 10");
+        numPairs = parseInt(numPairsString);
+        if (numPairs >= 1 && numPairs <= 10) {
+            return numPairs;
         }
         else {
-            alert("Deine Zahl liegt nicht zwischen 1 und 26");
+            alert("Deine Zahl liegt nicht zwischen 1 und 10");
             pair();
         }
     }
     let amount = pair();
     //Spielernamen erzeugen
-    function enterName(_numPlayer) {
+    function createPlayers(_numPlayerInt) {
         let node = document.getElementById("spielernamen");
         let childNodeHTML;
-        for (let i = 0; i < _numPlayer; i++) {
+        for (let i = 0; i < _numPlayerInt; i++) {
             childNodeHTML = "<div>";
-            childNodeHTML += "<h2>";
             childNodeHTML += "<p class='namen'>";
-            childNodeHTML += "Player " + i;
+            childNodeHTML += "Spieler " + (i + 1);
             childNodeHTML += "</p>";
-            childNodeHTML += "</h2>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
         }
     }
     //Inhalt der Karten erzeugen    
-    function creatCardList(x) {
-        for (let i = 1; i <= x; i++) {
+    function creatCardList(_numPairs) {
+        for (let i = 1; i <= _numPairs; i++) {
             var content = cardContent[0];
-            cardPush.push(content);
-            cardPush.push(content);
-            var remove = cardContent.splice(0, 1);
+            emtyArray.push(content);
+            emtyArray.push(content);
+            cardContent.splice(0, 1);
         }
     }
     //Karten erstell   
     function createCards(_numPairs) {
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
-        let i = 0;
         for (let i = 0; i < _numPairs * 2; i++) {
-            let min = 0;
-            let max = (cardPush.length);
-            var random = Math.floor(Math.random() * Math.floor(max));
+            var random = Math.floor(Math.random() * Math.floor(emtyArray.length));
             childNodeHTML = "<div  class='card" + "hidden" + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
-            childNodeHTML += cardPush[random];
+            childNodeHTML += emtyArray[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
-            var remove = cardPush.splice(random, 1);
+            emtyArray.splice(random, 1);
             var status = document.getElementsByClassName("cardhidden");
             for (let i = 0; i < status.length; i++) {
-                status[i].addEventListener("click", cardStatus);
+                status[i].addEventListener("click", changeStatus);
             }
         }
     }
-    function cardStatus(_event) {
-        console.log("Test");
-        let t = _event.currentTarget;
-        if (numCardsOpen >= 0 && numCardsOpen < 2) {
-            if (t.className = "hidden") {
-                if (!(numCardsOpen > 2)) {
-                    if (t.className = "cardhidden") {
-                        t.classList.remove("cardhidden");
-                        t.classList.add("cardopen");
-                        numCardsOpen++;
-                    }
-                }
-                if (numCardsOpen == 2) {
-                    setTimeout(compareCards, 1500);
-                }
-                if (numCardsOpen > 2) {
-                    t.classList.remove("cardopen");
-                    t.classList.add("cardhidden");
-                }
-                function compareCards() {
-                    let karte1 = document.getElementsByClassName("cardopen")[0];
-                    let karte2 = document.getElementsByClassName("cardopen")[1];
-                    openArray.push(karte1, karte2);
-                    console.log(openArray);
-                    if (openArray[0].innerHTML == openArray[1].innerHTML) {
-                        openArray[0].classList.remove("cardopen");
-                        openArray[0].classList.add("cardtaken");
-                        openArray[1].classList.remove("cardopen");
-                        openArray[1].classList.add("cardtaken");
-                        console.log("Kartenpaar abeglegt");
-                    }
-                    else {
-                        openArray[0].classList.remove("cardopen");
-                        openArray[0].classList.add("cardhidden");
-                        openArray[1].classList.remove("cardopen");
-                        openArray[1].classList.add("cardhidden");
-                    }
-                    numCardsOpen = 0;
-                    openArray.splice(0, 2);
-                }
+    function changeStatus(_event) {
+        let target = _event.currentTarget;
+        console.log("Was machst du für ein blödsinn?" + target);
+        if (target.classList.contains("cardhidden")) {
+            target.classList.remove("cardhidden");
+            target.classList.add("cardopen");
+            // console.log("was ist das schon wieder amk " + t.className)
+            numCardsOpen++;
+            if (numCardsOpen == 2) {
+                setTimeout(compareCards, 1000);
+            }
+            if (numCardsOpen > 2) {
+                target.classList.remove("cardopen");
+                target.classList.add("cardhidden");
             }
         }
+    }
+    function compareCards() {
+        let karte1 = document.getElementsByClassName("cardopen")[0];
+        let karte2 = document.getElementsByClassName("cardopen")[1];
+        openArray.push(karte1, karte2);
+        console.log(openArray);
+        if (openArray[0].innerHTML == openArray[1].innerHTML) {
+            openArray[0].classList.remove("cardopen");
+            openArray[0].classList.add("cardtaken");
+            openArray[1].classList.remove("cardopen");
+            openArray[1].classList.add("cardtaken");
+            console.log("Kartenpaar abeglegt");
+            wonCards++;
+            if (wonCards == numPairs) {
+                alert("Glückwunsch, du bist ein Genius");
+                location.reload(true);
+            }
+        }
+        else {
+            openArray[0].classList.remove("cardopen");
+            openArray[0].classList.add("cardhidden");
+            openArray[1].classList.remove("cardopen");
+            openArray[1].classList.add("cardhidden");
+        }
+        numCardsOpen = 0;
+        openArray.splice(0, 2);
     }
 })(Memory || (Memory = {}));
 //# sourceMappingURL=aufgabe03.js.map
