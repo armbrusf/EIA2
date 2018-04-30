@@ -43,30 +43,32 @@ var L04_Interfaces;
             line += studi.gender ? "(M)" : "(F)";
             output.value += line + "\n";
         }
-        // zusätzliche Konsolenausgaben zur Demonstration
-        console.group("Simple Array");
-        console.log(L04_Interfaces.studiSimpleArray);
-        console.groupEnd();
-        console.group("Associatives Array (Object)");
-        console.log(L04_Interfaces.studiHomoAssoc);
-        console.groupEnd();
     }
     function searchMtr(_event) {
+        let n = 0;
         let output = document.getElementsByTagName("textarea")[1];
         let mtrNumb = document.getElementById("mtrSearch");
         output.value = "";
         for (let matrikel in L04_Interfaces.studiHomoAssoc) {
             let studi = L04_Interfaces.studiHomoAssoc[matrikel];
             let line = matrikel + ": ";
+            let lengthstudiHomoAssoc = L04_Interfaces.studiSimpleArray.length;
+            console.log("Zahl " + L04_Interfaces.studiSimpleArray.length);
             if (mtrNumb.value == studi.matrikel.toString()) {
                 line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
                 line += studi.gender ? "(M)" : "(F)";
                 output.value += line + "\n";
             }
-            else {
+            else if ((lengthstudiHomoAssoc - 1) == n) {
                 let info = "kein Student vorhanden";
                 output.value += info + "\n";
+                n = 0;
             }
+            else {
+                n++;
+            }
+            console.log("Zählvariable: " + n);
+            console.log("Abbruch:" + lengthstudiHomoAssoc);
         }
     }
 })(L04_Interfaces || (L04_Interfaces = {}));

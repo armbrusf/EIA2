@@ -49,18 +49,11 @@ namespace L04_Interfaces {
             output.value += line + "\n";
         }
 
-        // zusätzliche Konsolenausgaben zur Demonstration
-        console.group("Simple Array");
-        console.log(studiSimpleArray);
-        console.groupEnd();
 
-        console.group("Associatives Array (Object)");
-        console.log(studiHomoAssoc);
-        console.groupEnd();
     }
 
     function searchMtr(_event: Event): void {
-        
+        let n: number = 0;
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
         let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("mtrSearch");
         output.value = "";
@@ -68,19 +61,30 @@ namespace L04_Interfaces {
         for (let matrikel in studiHomoAssoc) {
             let studi: Studi = studiHomoAssoc[matrikel];
             let line: string = matrikel + ": ";
+            let lengthstudiHomoAssoc: number = studiSimpleArray.length;
+            console.log("Zahl " + studiSimpleArray.length)
 
-            if (mtrNumb.value == studi.matrikel.toString()) {             
+
+            if (mtrNumb.value == studi.matrikel.toString()) {
 
                 line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
                 line += studi.gender ? "(M)" : "(F)";
                 output.value += line + "\n";
 
 
-            } else {
+
+            } else if ((lengthstudiHomoAssoc - 1) == n) {             
                 let info: string = "kein Student vorhanden";
                 output.value += info + "\n";
-                
+                n = 0;
+
             }
+
+            else {
+                n++;
+            }
+            console.log("Zählvariable: " + n)
+            console.log("Abbruch:" + lengthstudiHomoAssoc)
         }
     }
 }
