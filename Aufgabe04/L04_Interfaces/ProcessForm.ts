@@ -76,7 +76,6 @@ namespace L04_Interfaces {
                 output.value += line + "\n";
 
 
-
             } else {
                 let info: string = "kein Student vorhanden";
                 output.value += info + "\n";
