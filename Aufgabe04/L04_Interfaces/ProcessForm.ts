@@ -5,7 +5,7 @@ namespace L04_Interfaces {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let mrtSearchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("mtrSearchButton")
+        let mtrSearchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("mtrSearchButton")
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         mtrSearchButton.addEventListener("click", searchMtr)

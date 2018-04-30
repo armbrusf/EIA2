@@ -5,9 +5,10 @@ var L04_Interfaces;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("mtrSearchButton");
+        let mtrSearchButton = document.getElementById("mtrSearchButton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        mtrSearchButton.addEventListener("click", searchMtr);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -49,6 +50,8 @@ var L04_Interfaces;
         console.group("Associatives Array (Object)");
         console.log(L04_Interfaces.studiHomoAssoc);
         console.groupEnd();
+    }
+    function searchMtr() {
     }
 })(L04_Interfaces || (L04_Interfaces = {}));
 //# sourceMappingURL=ProcessForm.js.map
