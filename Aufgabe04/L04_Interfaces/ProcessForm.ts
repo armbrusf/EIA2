@@ -60,17 +60,16 @@ namespace L04_Interfaces {
     }
 
     function searchMtr(_event: Event): void {
-        console.log("I Bims");
+        
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-        let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("mtrSearchButton");
+        let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("mtrSearch");
         output.value = "";
 
         for (let matrikel in studiHomoAssoc) {
             let studi: Studi = studiHomoAssoc[matrikel];
             let line: string = matrikel + ": ";
 
-            if (mtrNumb.value == studi.matrikel.toString()) {
-                console.log("LOOOOOOOOOOL");
+            if (mtrNumb.value == studi.matrikel.toString()) {             
 
                 line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
                 line += studi.gender ? "(M)" : "(F)";
@@ -81,7 +80,7 @@ namespace L04_Interfaces {
             } else {
                 let info: string = "kein Student vorhanden";
                 output.value += info + "\n";
-                console.log("NOBODY is here");
+                
             }
         }
     }
