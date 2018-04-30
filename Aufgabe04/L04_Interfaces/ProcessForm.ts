@@ -59,7 +59,7 @@ namespace L04_Interfaces {
         console.groupEnd();
     }
     
-    function searchMtr (): void {
+    function searchMtr (_event: Event): void {
         
         }
 }
