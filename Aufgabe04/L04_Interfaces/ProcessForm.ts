@@ -5,19 +5,23 @@ namespace L04_Interfaces {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let mrtSearchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("mtrSearchButton")
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        mtrSearchButton.addEventListener("click", searchMtr)
     }
 
     function insert(_event: Event): void {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");
         let matrikel: string = inputs[2].value;
+        let courseOfStudie: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select");
         let studi: Studi;
         studi = {
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
+            courseOfStudies: courseOfStudie.value,
             age: parseInt(inputs[3].value),
             gender: genderButton.checked
         };
@@ -54,4 +58,8 @@ namespace L04_Interfaces {
         console.log(studiHomoAssoc);
         console.groupEnd();
     }
+    
+    function searchMtr (): void {
+        
+        }
 }

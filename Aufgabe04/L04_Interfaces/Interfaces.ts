@@ -4,6 +4,7 @@ namespace L04_Interfaces {
         name: string;
         firstname: string;
         matrikel: number;
+        courseOfStudies: string;
         age: number;
         gender: boolean;
     }

@@ -5,6 +5,7 @@ var L04_Interfaces;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        let searchButton = document.getElementById("mtrSearchButton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
     }
@@ -12,11 +13,13 @@ var L04_Interfaces;
         let inputs = document.getElementsByTagName("input");
         let genderButton = document.getElementById("male");
         let matrikel = inputs[2].value;
+        let courseOfStudie = document.getElementById("select");
         let studi;
         studi = {
             name: inputs[0].value,
             firstname: inputs[1].value,
             matrikel: parseInt(matrikel),
+            courseOfStudies: courseOfStudie.value,
             age: parseInt(inputs[3].value),
             gender: genderButton.checked
         };
