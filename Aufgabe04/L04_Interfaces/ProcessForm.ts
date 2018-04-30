@@ -58,8 +58,31 @@ namespace L04_Interfaces {
         console.log(studiHomoAssoc);
         console.groupEnd();
     }
-    
-    function searchMtr (_event: Event): void {
-        
+
+    function searchMtr(_event: Event): void {
+        console.log("I Bims");
+        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+        let mtrNumb: HTMLInputElement = <HTMLInputElement>document.getElementById("mtrSearchButton");
+        output.value = "";
+
+        for (let matrikel in studiHomoAssoc) {
+            let studi: Studi = studiHomoAssoc[matrikel];
+            let line: string = matrikel + ": ";
+
+            if (mtrNumb.value == studi.matrikel.toString()) {
+                console.log("LOOOOOOOOOOL");
+
+                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
+                line += studi.gender ? "(M)" : "(F)";
+                output.value += line + "\n";
+
+
+
+            } else {
+                let info: string = "kein Student vorhanden";
+                output.value += info + "\n";
+                console.log("NOBODY is here");
+            }
         }
+    }
 }
