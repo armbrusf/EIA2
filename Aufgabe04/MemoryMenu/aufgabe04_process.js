@@ -129,4 +129,4 @@ var Memory;
         openArray.splice(0, 2);
     }
 })(Memory || (Memory = {}));
-//# sourceMappingURL=aufgabe04.js.map
+//# sourceMappingURL=aufgabe04_process.js.map
