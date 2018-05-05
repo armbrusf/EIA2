@@ -21,7 +21,7 @@ var Memory04;
         header[0].classList.add("disappearedHeader");
         let players = parseInt(inputs[0].value);
         let amountCards = parseInt(inputs[5].value);
-        if (players <= 4 && players < 0 && amountCards > 0 && amountCards <= 10) {
+        if (players <= 4 && players > 0 && amountCards > 0 && amountCards <= 10) {
             //player();
             creatCardList();
             createPlayers();
@@ -78,6 +78,9 @@ var Memory04;
             childNodeHTML += "<p class='namen'>";
             childNodeHTML += playerName;
             childNodeHTML += "</p>";
+            childNodeHTML += "<p  id='Punktestand" + i + "'>";
+            childNodeHTML += "0";
+            childNodeHTML += "</p>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
         }
@@ -121,7 +124,6 @@ var Memory04;
         if (target.classList.contains("cardhidden")) {
             target.classList.remove("cardhidden");
             target.classList.add("cardopen");
-            // console.log("was ist das schon wieder amk " + t.className)
             numCardsOpen++;
             if (numCardsOpen == 2) {
                 setTimeout(compareCards, 1000);
@@ -146,6 +148,8 @@ var Memory04;
             openArray[1].classList.add("cardtaken");
             console.log("Kartenpaar abeglegt");
             wonCards++;
+            let playerScore = wonCards.toString();
+            document.getElementById('Punktestand0').innerHTML = playerScore;
             // Wenn alle Karten weg sind Jubeln
             if (wonCards == amountCards) {
                 alert("Glückwunsch, du bist ein Genius");

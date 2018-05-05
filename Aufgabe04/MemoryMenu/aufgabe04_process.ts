@@ -33,7 +33,7 @@ namespace Memory04 {
         let players: number = parseInt(inputs[0].value);
         let amountCards: number = parseInt(inputs[5].value);
 
-        if (players <= 4 && players < 0 && amountCards > 0 && amountCards <= 10) {
+        if (players <= 4 && players > 0 && amountCards > 0 && amountCards <= 10) {
             //player();
 
             creatCardList();
@@ -102,6 +102,9 @@ namespace Memory04 {
             childNodeHTML = "<div>";
             childNodeHTML += "<p class='namen'>";
             childNodeHTML += playerName;
+            childNodeHTML += "</p>";
+            childNodeHTML += "<p  id='Punktestand" + i + "'>";
+            childNodeHTML += "0";
             childNodeHTML += "</p>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
@@ -176,7 +179,6 @@ namespace Memory04 {
 
             target.classList.remove("cardhidden");
             target.classList.add("cardopen");
-            // console.log("was ist das schon wieder amk " + t.className)
             numCardsOpen++;
 
             if (numCardsOpen == 2) {
@@ -214,6 +216,9 @@ namespace Memory04 {
 
             console.log("Kartenpaar abeglegt");
             wonCards++;
+            
+            let playerScore: string = wonCards.toString();
+            document.getElementById('Punktestand0').innerHTML = playerScore;
 
             // Wenn alle Karten weg sind Jubeln
             if (wonCards == amountCards) {
@@ -221,7 +226,8 @@ namespace Memory04 {
                 location.reload(true);
             }
 
-
+        
+        
 
         } else {
             openArray[0].classList.remove("cardopen");
