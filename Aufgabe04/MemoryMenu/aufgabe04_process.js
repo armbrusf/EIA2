@@ -19,10 +19,18 @@ var Memory04;
     function main() {
         let header = document.getElementsByTagName("header");
         header[0].classList.add("disappearedHeader");
-        //player();
-        creatCardList();
-        createPlayers();
-        createCards();
+        let players = parseInt(inputs[0].value);
+        let amountCards = parseInt(inputs[5].value);
+        if (players <= 4 && players < 0 && amountCards > 0 && amountCards <= 10) {
+            //player();
+            creatCardList();
+            createPlayers();
+            createCards();
+        }
+        else {
+            alert("Falsche Eingabe");
+            location.reload(true);
+        }
     }
     /*    function player(): number {
             var numPlayerString: string = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
@@ -110,7 +118,6 @@ var Memory04;
     //Classe der Karten ändern wenn sie gedrückt werden
     function changeStatus(_event) {
         let target = _event.currentTarget;
-        console.log("Was machst du für ein blödsinn?" + target);
         if (target.classList.contains("cardhidden")) {
             target.classList.remove("cardhidden");
             target.classList.add("cardopen");
@@ -127,6 +134,7 @@ var Memory04;
     }
     // Karten vergleichen
     function compareCards() {
+        let amountCards = parseInt(inputs[5].value);
         let karte1 = document.getElementsByClassName("cardopen")[0];
         let karte2 = document.getElementsByClassName("cardopen")[1];
         openArray.push(karte1, karte2);
@@ -139,7 +147,7 @@ var Memory04;
             console.log("Kartenpaar abeglegt");
             wonCards++;
             // Wenn alle Karten weg sind Jubeln
-            if (wonCards == numPairs) {
+            if (wonCards == amountCards) {
                 alert("Glückwunsch, du bist ein Genius");
                 location.reload(true);
             }

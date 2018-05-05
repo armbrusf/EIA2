@@ -27,17 +27,26 @@ namespace Memory04 {
 
     //Hauptfunktion für Memory    
     function main(): void {
-
         let header: NodeListOf<HTMLElement> = document.getElementsByTagName("header");
         header[0].classList.add("disappearedHeader")
 
-        //player();
+        let players: number = parseInt(inputs[0].value);
+        let amountCards: number = parseInt(inputs[5].value);
 
-        creatCardList();
+        if (players <= 4 && players < 0 && amountCards > 0 && amountCards <= 10) {
+            //player();
 
-        createPlayers();
+            creatCardList();
 
-        createCards();
+            createPlayers();
+
+            createCards();
+        }
+
+        else {
+            alert("Falsche Eingabe");
+            location.reload(true);
+        }
     }
 
 
@@ -109,15 +118,15 @@ namespace Memory04 {
         let select: HTMLSelectElement = <HTMLSelectElement>document.getElementById("cardContent");
         let chosenCardContent: string = select.value;
 
-        
+
         for (let i: number = 1; i <= amountCards; i++) {
-            let content: string = decks[chosenCardContent].cardContent[i-1];
-            
+            let content: string = decks[chosenCardContent].cardContent[i - 1];
+
             emtyArray.push(content);
             emtyArray.push(content);
 
             cardContent.splice(0, 1);
-            
+
             console.log(emtyArray)
         }
     }
@@ -125,9 +134,9 @@ namespace Memory04 {
 
     //Karten erstell   
     function createCards(): void {
-        
+
         let amountCards: number = parseInt(inputs[5].value);
-        
+
         let node: any = document.getElementById("spielfeld");
         let childNodeHTML: string;
 
@@ -161,7 +170,7 @@ namespace Memory04 {
     //Classe der Karten ändern wenn sie gedrückt werden
     function changeStatus(_event: MouseEvent): void {
         let target: HTMLElement = <HTMLElement>_event.currentTarget;
-        console.log("Was machst du für ein blödsinn?" + target)
+
 
         if (target.classList.contains("cardhidden")) {
 
@@ -186,6 +195,7 @@ namespace Memory04 {
 
     // Karten vergleichen
     function compareCards(): void {
+        let amountCards: number = parseInt(inputs[5].value);
         let karte1: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("cardopen")[0];
         let karte2: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("cardopen")[1];
 
@@ -206,7 +216,7 @@ namespace Memory04 {
             wonCards++;
 
             // Wenn alle Karten weg sind Jubeln
-            if (wonCards == numPairs) {
+            if (wonCards == amountCards) {
                 alert("Glückwunsch, du bist ein Genius");
                 location.reload(true);
             }
