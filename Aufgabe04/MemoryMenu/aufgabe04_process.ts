@@ -1,4 +1,4 @@
-namespace Memory {
+namespace Memory04 {
 
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     let emtyArray: string[] = [];
@@ -10,73 +10,89 @@ namespace Memory {
     let takenCards: any = [];
     let wonCards: number = 0;
 
+    let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
 
 
-    document.addEventListener('DOMContentLoaded', main);
 
-    //Hauptfunktion    
+    document.addEventListener('DOMContentLoaded', init);
+
+
+
+    function init(): void {
+        let startButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButton");
+        startButton.addEventListener("click", main);
+
+    }
+
+    //Hauptfunktion für Memory    
     function main(): void {
 
-        player();
+        let header: NodeListOf<HTMLElement> = document.getElementsByTagName("header");
+        header[0].classList.add("disappearedHeader")
 
-        creatCardList(numPairs);
+        //player();
 
-        createPlayers(numPlayer);
+        creatCardList();
 
-        createCards(numPairs);
+        createPlayers();
+
+        createCards();
     }
 
 
 
-    function player(): number {
-        var numPlayerString: string = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
-        numPlayer = parseInt(numPlayerString);
-
-        if (numPlayer >= 1 && numPlayer <= 4) {
-            return numPlayer;
-
+    /*    function player(): number {
+            var numPlayerString: string = prompt("Wie viele Spieler?   min. 1 | max. 4", "");
+            numPlayer = parseInt(numPlayerString);
+    
+            if (numPlayer >= 1 && numPlayer <= 4) {
+                return numPlayer;
+    
+            }
+            else {
+                alert("Deine Zahl liegt nicht zwischen 1 und 4");
+                player();
+            }
         }
-        else {
-            alert("Deine Zahl liegt nicht zwischen 1 und 4");
-            player();
+    
+    
+    
+        //Kartenpaare eingeben
+        function pair(): number {
+            var numPairsString: string = prompt("Wieviele Kaartenparre?   min. 1 | max. 10");
+            numPairs = parseInt(numPairsString);
+    
+            if (numPairs >= 1 && numPairs <= 10) {
+                return numPairs;
+    
+            }
+            else {
+                alert("Deine Zahl liegt nicht zwischen 1 und 10");
+                pair();
+            }
+    
         }
-    }
-
-
-
-    //Kartenpaare eingeben
-    function pair(): number {
-        var numPairsString: string = prompt("Wieviele Kaartenparre?   min. 1 | max. 10");
-        numPairs = parseInt(numPairsString);
-
-        if (numPairs >= 1 && numPairs <= 10) {
-            return numPairs;
-
-        }
-        else {
-            alert("Deine Zahl liegt nicht zwischen 1 und 10");
-            pair();
-        }
-
-    }
-
-
-    let amount: number = pair();
-
+    
+    
+        let amount: number = pair();
+    */
 
 
     //Spielernamen erzeugen
-    function createPlayers(_numPlayerInt: number): void {
+    function createPlayers(): void {
+        let players: number = parseInt(inputs[0].value);
+
+
         let node: any = document.getElementById("spielernamen");
         let childNodeHTML: string;
 
-        for (let i: number = 0; i < _numPlayerInt; i++) {
-
+        for (let i: number = 0; i < players; i++) {
+            let playerName: string = inputs[i + 1].value
 
             childNodeHTML = "<div>";
             childNodeHTML += "<p class='namen'>";
-            childNodeHTML += "Spieler " + (i + 1);
+            childNodeHTML += playerName;
             childNodeHTML += "</p>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
@@ -87,26 +103,37 @@ namespace Memory {
 
 
     //Inhalt der Karten erzeugen    
-    function creatCardList(_numPairs: number): void {
-        for (let i: number = 1; i <= _numPairs; i++) {
-            var content: string = cardContent[0];
+    function creatCardList(): void {
+        let amountCards: number = parseInt(inputs[5].value);
+
+        let select: HTMLSelectElement = <HTMLSelectElement>document.getElementById("cardContent");
+        let chosenCardContent: string = select.value;
+
+        
+        for (let i: number = 1; i <= amountCards; i++) {
+            let content: string = decks[chosenCardContent].cardContent[i-1];
+            
             emtyArray.push(content);
             emtyArray.push(content);
 
             cardContent.splice(0, 1);
-
+            
+            console.log(emtyArray)
         }
     }
 
 
     //Karten erstell   
-    function createCards(_numPairs: number): void {
+    function createCards(): void {
+        
+        let amountCards: number = parseInt(inputs[5].value);
+        
         let node: any = document.getElementById("spielfeld");
         let childNodeHTML: string;
 
 
 
-        for (let i: number = 0; i < _numPairs * 2; i++) {
+        for (let i: number = 0; i < amountCards * 2; i++) {
 
             var random: number = Math.floor(Math.random() * Math.floor(emtyArray.length));
 
@@ -200,4 +227,6 @@ namespace Memory {
         openArray.splice(0, 2);
 
     }
+
 }
+

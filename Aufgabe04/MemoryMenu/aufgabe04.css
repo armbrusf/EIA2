@@ -1,3 +1,7 @@
+.disappearedHeader {
+	display:none;
+}
+
 .cardopen {
 	float: left; 
 	height: 5em; 
@@ -53,19 +57,28 @@
 	padding: 2em;
 	
 }
-#spielernamen {position: fixed;
-	left: 0;
-	top: 0;
+
+footer {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+	height: 20%;
+	color: white;
+background-color: grey;
+
+
+}
+
+footer p {
+	float: left;
 	text-align: center;
-	width: 30%;
-	height: 100%;
-	background-color: #F4F4F4;
+}
+
+
+#spielernamen {
+
 }
 #spielfeld {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 70%;
-	height: 100%;
-	overflow: auto;
+
 }
