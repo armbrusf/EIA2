@@ -1,7 +1,7 @@
 
 /*
 Aufgabe: 6 
-Name: evelyn schmidt  
+Name: Fabio Armbruster
 Datum: 26.05.18
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
