@@ -1,7 +1,7 @@
 var Aufgabe08;
 (function (Aufgabe08) {
     window.addEventListener("load", init);
-    let address = "https://marco-server.herokuapp.com";
+    let address = "https://eiaapp.herokuapp.com/";
     let inputs = document.getElementsByTagName("input");
     function init(_event) {
         console.log("Init");
