@@ -1,6 +1,6 @@
-var Aufgabe08;
-(function (Aufgabe08) {
-    // Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
-    Aufgabe08.studiHomoAssoc = {};
-})(Aufgabe08 || (Aufgabe08 = {}));
+var aufgabe8;
+(function (aufgabe8) {
+    // Homogenes assoziatives Array zur Speicherung eines Studierenden unter seiner Matrikelnummer
+    aufgabe8.studiHomoAssoc = {};
+})(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=Interfaces.js.map

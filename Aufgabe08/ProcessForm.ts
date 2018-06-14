@@ -1,6 +1,14 @@
-namespace Aufgabe08 {
+/*
+Aufgabe:8 
+Name:Fabio Armbruster
+Datum:10.06.18
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+namespace aufgabe8 {
     window.addEventListener("load", init);
-    let address: string = "https://eiaapp.herokuapp.com/";
+    let address: string = "https://muelle2k.herokuapp.com";
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 

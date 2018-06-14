@@ -1,7 +1,14 @@
-var Aufgabe08;
-(function (Aufgabe08) {
+/*
+Aufgabe:8
+Name:Fabio Armbruster
+Datum:10.06.18
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+var aufgabe8;
+(function (aufgabe8) {
     window.addEventListener("load", init);
-    let address = "https://eiaapp.herokuapp.com/";
+    let address = "https://muelle2k.herokuapp.com";
     let inputs = document.getElementsByTagName("input");
     function init(_event) {
         console.log("Init");
@@ -66,5 +73,5 @@ var Aufgabe08;
             output.value += xhr.response;
         }
     }
-})(Aufgabe08 || (Aufgabe08 = {}));
+})(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=ProcessForm.js.map
