@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var aufgabe8;
 (function (aufgabe8) {
     window.addEventListener("load", init);
-    let address = "https://muelle2k.herokuapp.com";
+    let address = "https://eiaapp.herokuapp.com/";
     let inputs = document.getElementsByTagName("input");
     function init(_event) {
         console.log("Init");

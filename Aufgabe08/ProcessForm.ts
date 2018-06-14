@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace aufgabe8 {
     window.addEventListener("load", init);
-    let address: string = "https://muelle2k.herokuapp.com";
+    let address: string = "https://eiaapp.herokuapp.com/";
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
