@@ -9,14 +9,18 @@ namespace L09_Canvas {
 
         crc2.fillStyle = "rgba(255,0,0,0.5)";
         crc2.fillRect(50, 50, 100, 50);
+        
         drawBackground()
+        
         // Fische random verteilen
         for (let i: number = 0; i < 7; i++) {
             let x = Math.random() * crc2.canvas.width;
             let y = Math.random() * crc2.canvas.height - 300;
-            drawFish(x, y);
+            drawFish2(x, y);
         }
         
+        
+    
         // Funktionsaufruf der Schatzkiste
         drawChest();
         
@@ -86,6 +90,22 @@ namespace L09_Canvas {
 // Funktion um Fische zu zeichnen
     function drawFish(_x: number, _y: number): void {
         crc2.fillStyle = "#FFBF00";
+
+        crc2.beginPath();
+        crc2.moveTo(_x, _y)
+        crc2.quadraticCurveTo(_x + 20, _y - 40, _x + 100, _y)
+        crc2.lineTo(_x + 115, _y + 20)
+        crc2.lineTo(_x + 115, _y - 20)
+        crc2.lineTo(_x + 100, _y)
+        crc2.quadraticCurveTo(_x + 20, _y + 40, _x, _y)
+
+
+        crc2.stroke();
+        crc2.fill();
+    }
+    
+    function drawFish2(_x: number, _y: number): void {
+        crc2.fillStyle = "#F781F3";
 
         crc2.beginPath();
         crc2.moveTo(_x, _y)
