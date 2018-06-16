@@ -30,4 +30,6 @@ var L09_Canvas;
         crc2.fill();
     }
 })(L09_Canvas || (L09_Canvas = {}));
+function drawBackground() {
+}
 //# sourceMappingURL=Canvas.js.map

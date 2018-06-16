@@ -35,3 +35,7 @@ namespace L09_Canvas {
         crc2.fill();
     }
 }
+
+function drawBackground (): void {
+    
+}
