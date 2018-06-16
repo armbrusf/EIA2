@@ -77,6 +77,9 @@ var L09_Canvas;
         crc2.stroke();
         crc2.fill();
     }
+    function drawFish2(_x, _y) {
+        crc2.fillStyle = "#585858";
+    }
     // Funktion um Blasen zu zeichen
     function drawBubble(_x, _y, _r) {
         crc2.beginPath();

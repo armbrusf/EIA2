@@ -100,6 +100,10 @@ namespace L09_Canvas {
         crc2.fill();
     }
     
+    function drawFish2(_x: number, _y: number): void {
+        crc2.fillStyle = "#585858";
+        }
+    
     
     
 // Funktion um Blasen zu zeichen
