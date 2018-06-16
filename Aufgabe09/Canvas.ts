@@ -17,7 +17,7 @@ namespace L09_Canvas {
             drawFish(x, y);
         }
         
-        drawFish2(200, 200);
+        //drawFish2(200, 200);
         
         // Funktionsaufruf der Schatzkiste
         drawChest();
@@ -102,14 +102,17 @@ namespace L09_Canvas {
         crc2.fill();
     }
     
-    function drawFish2(_x: number, _y: number): void {
+    /*function drawFish2(_x: number, _y: number): void {
         crc2.fillStyle = "#585858";
         
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.moveTo(_x ,_y);
+        crc2.quadraticCurveTo(_x,_y,_x+10,_y+10)
+        
+        crc2.stroke();
         
         }
+    */
     
     
     

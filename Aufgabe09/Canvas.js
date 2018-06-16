@@ -15,7 +15,7 @@ var L09_Canvas;
             let y = Math.random() * crc2.canvas.height - 300;
             drawFish(x, y);
         }
-        drawFish2(200, 200);
+        //drawFish2(200, 200);
         // Funktionsaufruf der Schatzkiste
         drawChest();
         // Bubbles random verteilen       
@@ -78,12 +78,17 @@ var L09_Canvas;
         crc2.stroke();
         crc2.fill();
     }
-    function drawFish2(_x, _y) {
+    /*function drawFish2(_x: number, _y: number): void {
         crc2.fillStyle = "#585858";
+        
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.moveTo(_x, _y);
-    }
+        crc2.quadraticCurveTo(_x,_y,_x+10,_y+10)
+        
+        crc2.stroke();
+        
+        }
+    */
     // Funktion um Blasen zu zeichen
     function drawBubble(_x, _y, _r) {
         crc2.beginPath();
