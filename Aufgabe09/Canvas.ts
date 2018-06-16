@@ -107,7 +107,8 @@ namespace L09_Canvas {
         
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.moveTo(_x ,_y,_x,_y);
+        crc2.moveTo(_x ,_y);
+        
         }
     
     
