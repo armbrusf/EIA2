@@ -1,8 +1,9 @@
 namespace L10_Canvas {
     window.addEventListener("load", init);
     let fishes: Fish[] = [];
+    let bubbles: Bubble[] = [];
     let n: number = 7;
-    let imagedata : ImageData;
+    let imagedata: ImageData;
     export let crc2: CanvasRenderingContext2D;
 
     function init(_event: Event): void {
@@ -10,17 +11,17 @@ namespace L10_Canvas {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-// Funktionsaufrufe
+        // Funktionsaufrufe
         drawBackground()
         drawChest();
         drawGras(500, 625);
         drawGras(525, 621);
         drawGras(550, 618);
         drawGras(575, 612);
-        
+
         imagedata = crc2.getImageData(0, 0, 600, 800);
-        
-        
+
+
 
         // Animation 
         for (let i: number = 0; i < n; i++) {
@@ -30,16 +31,14 @@ namespace L10_Canvas {
             fishes.push(fish);
         }
 
-       
 
 
-        // Bubbles random verteilen       
         for (let i: number = 0; i < 15; i++) {
-            let x: number = Math.random() * (400 - 350) + 350;
-            let y: number = Math.random() * crc2.canvas.height - 200;
-            let r: number = Math.random() * 10;
-
-            drawBubble(x, y, r);
+            let bubble: Bubble = new Bubble();
+            bubble.x = Math.random() * (400 - 350) + 350;
+            bubble.y = Math.random() * crc2.canvas.height - 200;
+            bubble.r = Math.random() * 10;
+            bubbles.push(bubble);
         }
     }
     // Funktion um alles bisschen zu Zeichenen :D
@@ -60,7 +59,7 @@ namespace L10_Canvas {
         crc2.stroke();
         crc2.fill();
 
-        
+
         // Sand
         crc2.fillStyle = "#ae8f58";
 
@@ -88,7 +87,7 @@ namespace L10_Canvas {
         crc2.fill();
     }
 
-    
+
     animate();
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
     function animate(): void {
@@ -97,6 +96,8 @@ namespace L10_Canvas {
         crc2.putImageData(imagedata, 0, 0);
         moveFishes();
         drawFishes();
+        moveBubbles();
+        drawBubbles();
     }
     // Fische bewegen und zeichnen
     function moveFishes(): void {
@@ -110,19 +111,18 @@ namespace L10_Canvas {
             fishes[i].draw();
     }
 
-
-
-    // Funktion um Blasen zu zeichen
-   /* function drawBubble(_x: number, _y: number, _r: number): void {
-        crc2.beginPath();
-        crc2.fillStyle = "#81BEF7";
-        crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fill();
+    function moveBubbles(): void {
+        for (let i: number = 0; i < bubbles.length; i++) {
+            bubbles[i].move();
+        }
     }
-    
-    */
+
+    function drawBubbles(): void {
+        for (let i: number = 0; i < bubbles.length; i++) {
+            bubbles[i].draw();
+        }
+    }
+
 
     // Funktion um Schatzdruhe zu zeichnen    
     function drawChest(): void {

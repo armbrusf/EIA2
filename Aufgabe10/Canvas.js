@@ -2,6 +2,7 @@ var L10_Canvas;
 (function (L10_Canvas) {
     window.addEventListener("load", init);
     let fishes = [];
+    let bubbles = [];
     let n = 7;
     let imagedata;
     function init(_event) {
@@ -23,12 +24,12 @@ var L10_Canvas;
             fish.y = Math.random() * 500;
             fishes.push(fish);
         }
-        // Bubbles random verteilen       
         for (let i = 0; i < 15; i++) {
-            let x = Math.random() * (400 - 350) + 350;
-            let y = Math.random() * L10_Canvas.crc2.canvas.height - 200;
-            let r = Math.random() * 10;
-            drawBubble(x, y, r);
+            let bubble = new L10_Canvas.Bubble();
+            bubble.x = Math.random() * (400 - 350) + 350;
+            bubble.y = Math.random() * L10_Canvas.crc2.canvas.height - 200;
+            bubble.r = Math.random() * 10;
+            bubbles.push(bubble);
         }
     }
     // Funktion um alles bisschen zu Zeichenen :D
@@ -72,6 +73,8 @@ var L10_Canvas;
         L10_Canvas.crc2.putImageData(imagedata, 0, 0);
         moveFishes();
         drawFishes();
+        moveBubbles();
+        drawBubbles();
     }
     // Fische bewegen und zeichnen
     function moveFishes() {
@@ -83,14 +86,15 @@ var L10_Canvas;
         for (let i = 0; i < fishes.length; i++)
             fishes[i].draw();
     }
-    // Funktion um Blasen zu zeichen
-    function drawBubble(_x, _y, _r) {
-        L10_Canvas.crc2.beginPath();
-        L10_Canvas.crc2.fillStyle = "#81BEF7";
-        L10_Canvas.crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
-        L10_Canvas.crc2.closePath();
-        L10_Canvas.crc2.stroke();
-        L10_Canvas.crc2.fill();
+    function moveBubbles() {
+        for (let i = 0; i < bubbles.length; i++) {
+            bubbles[i].move();
+        }
+    }
+    function drawBubbles() {
+        for (let i = 0; i < bubbles.length; i++) {
+            bubbles[i].draw();
+        }
     }
     // Funktion um Schatzdruhe zu zeichnen    
     function drawChest() {
