@@ -3,8 +3,17 @@ namespace L10_Canvas {
     export class Fish {
         x: number;
         y: number;
+        
+        
+        move(): void {
+            this.x -= 2;
+            
+            if (this.x < 1) {
+                this.x = 650;
+            }
+}
 
-        drawFish(): void {
+        draw(): void {
             crc2.fillStyle = "#FFBF00";
 
             crc2.beginPath();

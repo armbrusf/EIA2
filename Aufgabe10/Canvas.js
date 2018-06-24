@@ -1,22 +1,28 @@
 var L10_Canvas;
 (function (L10_Canvas) {
     window.addEventListener("load", init);
+    let fishes = [];
+    let n = 7;
+    let imagedata;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         L10_Canvas.crc2 = canvas.getContext("2d");
         console.log(L10_Canvas.crc2);
-        L10_Canvas.crc2.fillStyle = "rgba(255,0,0,0.5)";
-        L10_Canvas.crc2.fillRect(50, 50, 100, 50);
+        // Funktionsaufrufe
         drawBackground();
-        // Fische random verteilen
-        for (let i = 0; i < 7; i++) {
-            let x = Math.random() * L10_Canvas.crc2.canvas.width;
-            let y = Math.random() * L10_Canvas.crc2.canvas.height - 300;
-            drawFish(x, y);
-        }
-        //drawFish2(200, 200);
-        // Funktionsaufruf der Schatzkiste
         drawChest();
+        drawGras(500, 625);
+        drawGras(525, 621);
+        drawGras(550, 618);
+        drawGras(575, 612);
+        imagedata = L10_Canvas.crc2.getImageData(0, 0, 600, 800);
+        // Animation 
+        for (let i = 0; i < n; i++) {
+            let fish = new L10_Canvas.Fish();
+            fish.x = Math.random() * L10_Canvas.crc2.canvas.width;
+            fish.y = Math.random() * 500;
+            fishes.push(fish);
+        }
         // Bubbles random verteilen       
         for (let i = 0; i < 15; i++) {
             let x = Math.random() * (400 - 350) + 350;
@@ -38,11 +44,6 @@ var L10_Canvas;
         L10_Canvas.crc2.lineTo(0, 600);
         L10_Canvas.crc2.stroke();
         L10_Canvas.crc2.fill();
-        //Funktionsaufruf Gras 
-        drawGras(500, 625);
-        drawGras(525, 621);
-        drawGras(550, 618);
-        drawGras(575, 612);
         // Sand
         L10_Canvas.crc2.fillStyle = "#ae8f58";
         L10_Canvas.crc2.beginPath();
@@ -64,30 +65,24 @@ var L10_Canvas;
         L10_Canvas.crc2.quadraticCurveTo(_x + 25, _y - 22, _x, _y);
         L10_Canvas.crc2.fill();
     }
-    // Funktion um Fische zu zeichnen
-    function drawFish(_x, _y) {
-        L10_Canvas.crc2.fillStyle = "#FFBF00";
-        L10_Canvas.crc2.beginPath();
-        L10_Canvas.crc2.moveTo(_x, _y);
-        L10_Canvas.crc2.quadraticCurveTo(_x + 20, _y - 40, _x + 100, _y);
-        L10_Canvas.crc2.lineTo(_x + 115, _y + 20);
-        L10_Canvas.crc2.lineTo(_x + 115, _y - 20);
-        L10_Canvas.crc2.lineTo(_x + 100, _y);
-        L10_Canvas.crc2.quadraticCurveTo(_x + 20, _y + 40, _x, _y);
-        L10_Canvas.crc2.stroke();
-        L10_Canvas.crc2.fill();
+    animate();
+    // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
+    function animate() {
+        window.setTimeout(animate, 25);
+        L10_Canvas.crc2.putImageData(imagedata, 0, 0);
+        moveFishes();
+        drawFishes();
     }
-    /*function drawFish2(_x: number, _y: number): void {
-        crc2.fillStyle = "#585858";
-        
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.quadraticCurveTo(_x,_y,_x+10,_y+10)
-        
-        crc2.stroke();
-        
+    // Fische bewegen und zeichnen
+    function moveFishes() {
+        for (let i = 0; i < fishes.length; i++) {
+            fishes[i].move();
         }
-    */
+    }
+    function drawFishes() {
+        for (let i = 0; i < fishes.length; i++)
+            fishes[i].draw();
+    }
     // Funktion um Blasen zu zeichen
     function drawBubble(_x, _y, _r) {
         L10_Canvas.crc2.beginPath();

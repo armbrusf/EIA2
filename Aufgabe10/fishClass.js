@@ -1,7 +1,13 @@
 var L10_Canvas;
 (function (L10_Canvas) {
     class Fish {
-        drawFish() {
+        move() {
+            this.x -= 2;
+            if (this.x < 1) {
+                this.x = 650;
+            }
+        }
+        draw() {
             L10_Canvas.crc2.fillStyle = "#FFBF00";
             L10_Canvas.crc2.beginPath();
             L10_Canvas.crc2.moveTo(this.x, this.y);

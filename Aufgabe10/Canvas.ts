@@ -1,5 +1,8 @@
 namespace L10_Canvas {
     window.addEventListener("load", init);
+    let fishes: Fish[] = [];
+    let n: number = 7;
+    let imagedata : ImageData;
     export let crc2: CanvasRenderingContext2D;
 
     function init(_event: Event): void {
@@ -7,32 +10,39 @@ namespace L10_Canvas {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-        crc2.fillStyle = "rgba(255,0,0,0.5)";
-        crc2.fillRect(50, 50, 100, 50);
+// Funktionsaufrufe
         drawBackground()
-        // Fische random verteilen
-        for (let i: number = 0; i < 7; i++) {
-            let x = Math.random() * crc2.canvas.width;
-            let y = Math.random() * crc2.canvas.height - 300;
-            drawFish(x, y);
-        }
-        
-        //drawFish2(200, 200);
-        
-        // Funktionsaufruf der Schatzkiste
         drawChest();
+        drawGras(500, 625);
+        drawGras(525, 621);
+        drawGras(550, 618);
+        drawGras(575, 612);
+        
+        imagedata = crc2.getImageData(0, 0, 600, 800);
         
         
+
+        // Animation 
+        for (let i: number = 0; i < n; i++) {
+            let fish: Fish = new Fish();
+            fish.x = Math.random() * crc2.canvas.width;
+            fish.y = Math.random() * 500;
+            fishes.push(fish);
+        }
+
+       
+
+
         // Bubbles random verteilen       
         for (let i: number = 0; i < 15; i++) {
-            let x: number = Math.random() * (400-350) + 350;
-            let y: number = Math.random() * crc2.canvas.height -200;
+            let x: number = Math.random() * (400 - 350) + 350;
+            let y: number = Math.random() * crc2.canvas.height - 200;
             let r: number = Math.random() * 10;
-            
+
             drawBubble(x, y, r);
         }
     }
-// Funktion um alles bisschen zu Zeichenen :D
+    // Funktion um alles bisschen zu Zeichenen :D
     function drawBackground(): void {
 
 
@@ -50,14 +60,7 @@ namespace L10_Canvas {
         crc2.stroke();
         crc2.fill();
 
-
-        //Funktionsaufruf Gras 
-        drawGras(500, 625);
-        drawGras(525, 621);
-        drawGras(550, 618);
-        drawGras(575, 612);
-
-
+        
         // Sand
         crc2.fillStyle = "#ae8f58";
 
@@ -72,7 +75,7 @@ namespace L10_Canvas {
 
     }
 
-//Funktion um Gras zu Zeichenen
+    //Funktion um Gras zu Zeichenen
     function drawGras(_x: number, _y: number): void {
         crc2.fillStyle = "#075709";
 
@@ -84,39 +87,32 @@ namespace L10_Canvas {
         crc2.quadraticCurveTo(_x + 25, _y - 22, _x, _y);
         crc2.fill();
     }
+
     
-// Funktion um Fische zu zeichnen
-    function drawFish(_x: number, _y: number): void {
-        crc2.fillStyle = "#FFBF00";
+    animate();
+    // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
+    function animate(): void {
+        window.setTimeout(animate, 25);
 
-        crc2.beginPath();
-        crc2.moveTo(_x, _y)
-        crc2.quadraticCurveTo(_x + 20, _y - 40, _x + 100, _y)
-        crc2.lineTo(_x + 115, _y + 20)
-        crc2.lineTo(_x + 115, _y - 20)
-        crc2.lineTo(_x + 100, _y)
-        crc2.quadraticCurveTo(_x + 20, _y + 40, _x, _y)
-
-
-        crc2.stroke();
-        crc2.fill();
+        crc2.putImageData(imagedata, 0, 0);
+        moveFishes();
+        drawFishes();
     }
-    
-    /*function drawFish2(_x: number, _y: number): void {
-        crc2.fillStyle = "#585858";
-        
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.quadraticCurveTo(_x,_y,_x+10,_y+10)
-        
-        crc2.stroke();
-        
+    // Fische bewegen und zeichnen
+    function moveFishes(): void {
+        for (let i: number = 0; i < fishes.length; i++) {
+            fishes[i].move();
         }
-    */
-    
-    
-    
-// Funktion um Blasen zu zeichen
+    }
+
+    function drawFishes(): void {
+        for (let i: number = 0; i < fishes.length; i++)
+            fishes[i].draw();
+    }
+
+
+
+    // Funktion um Blasen zu zeichen
     function drawBubble(_x: number, _y: number, _r: number): void {
         crc2.beginPath();
         crc2.fillStyle = "#81BEF7";
@@ -125,10 +121,10 @@ namespace L10_Canvas {
         crc2.stroke();
         crc2.fill();
     }
-    
-// Funktion um Schatzdruhe zu zeichnen    
-function drawChest () : void {
-   
+
+    // Funktion um Schatzdruhe zu zeichnen    
+    function drawChest(): void {
+
 
         crc2.fillStyle = "#7d4700";
         crc2.beginPath();
