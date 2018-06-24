@@ -8,8 +8,8 @@ namespace L10_Canvas {
         move(): void {
             this.x -= 2;
             
-            if (this.x < 1) {
-                this.x = 650;
+            if (this.x < -110) {
+                this.x = 600;
             }
 }
 

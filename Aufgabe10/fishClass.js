@@ -3,8 +3,8 @@ var L10_Canvas;
     class Fish {
         move() {
             this.x -= 2;
-            if (this.x < 1) {
-                this.x = 650;
+            if (this.x < -110) {
+                this.x = 600;
             }
         }
         draw() {
