@@ -1,6 +1,6 @@
-namespace L09_Canvas {
+namespace L10_Canvas {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
+    export let crc2: CanvasRenderingContext2D;
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
