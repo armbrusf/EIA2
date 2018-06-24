@@ -1,0 +1,1 @@
+//# sourceMappingURL=fishClass.js.map
