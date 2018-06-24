@@ -113,7 +113,7 @@ namespace L10_Canvas {
 
 
     // Funktion um Blasen zu zeichen
-    function drawBubble(_x: number, _y: number, _r: number): void {
+   /* function drawBubble(_x: number, _y: number, _r: number): void {
         crc2.beginPath();
         crc2.fillStyle = "#81BEF7";
         crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
@@ -121,6 +121,8 @@ namespace L10_Canvas {
         crc2.stroke();
         crc2.fill();
     }
+    
+    */
 
     // Funktion um Schatzdruhe zu zeichnen    
     function drawChest(): void {
