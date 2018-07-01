@@ -28,4 +28,6 @@ namespace L11_Canvas {
             crc2.fill();
         }
     }
+    function ohneSinn(): void {};
+
 }

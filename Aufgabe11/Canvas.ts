@@ -139,4 +139,6 @@ namespace L11_Canvas {
         crc2.lineTo(440, 590);
         crc2.stroke();
     }
+    function ohneSinn(): void {};
+
 }

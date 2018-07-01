@@ -17,5 +17,7 @@ var L11_Canvas;
         }
     }
     L11_Canvas.Bubble = Bubble;
+    function ohneSinn() { }
+    ;
 })(L11_Canvas || (L11_Canvas = {}));
 //# sourceMappingURL=bubbleClass.js.map

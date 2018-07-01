@@ -30,5 +30,5 @@ namespace L11_Canvas {
 
 
 
-
+function ohneSinn(): void {};
 }

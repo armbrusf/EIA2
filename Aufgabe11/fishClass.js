@@ -21,5 +21,7 @@ var L11_Canvas;
         }
     }
     L11_Canvas.Fish = Fish;
+    function ohneSinn() { }
+    ;
 })(L11_Canvas || (L11_Canvas = {}));
 //# sourceMappingURL=fishClass.js.map
