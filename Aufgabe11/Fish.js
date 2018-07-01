@@ -24,4 +24,4 @@ var L11_Canvas;
     function ohneSinn() { }
     ;
 })(L11_Canvas || (L11_Canvas = {}));
-//# sourceMappingURL=fishClass.js.map
+//# sourceMappingURL=Fish.js.map
