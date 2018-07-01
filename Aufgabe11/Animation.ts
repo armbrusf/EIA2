@@ -5,7 +5,7 @@ namespace L11_Canvas {
     let objects: MovingObjects[] = [];
     let nFish: number = 7;
     let nBubble: number = 15;
-    let imagedata: ImageData;
+    export let imagedata: ImageData;
     export let crc2: CanvasRenderingContext2D;
 
     function init(_event: Event): void {
@@ -14,15 +14,16 @@ namespace L11_Canvas {
         console.log(crc2);
 
         // Funktionsaufrufe
-        drawBackground()
-        drawChest();
-        drawGras(500, 625);
-        drawGras(525, 621);
-        drawGras(550, 618);
-        drawGras(575, 612);
-
-        imagedata = crc2.getImageData(0, 0, 600, 800);
-
+        drawAllBackgrounds();
+        /* drawBackground();
+         drawChest();
+         drawGras(500, 625);
+         drawGras(525, 621);
+         drawGras(550, 618);
+         drawGras(575, 612);
+ 
+         imagedata = crc2.getImageData(0, 0, 600, 800);
+ */
 
 
         // Animation 
@@ -44,7 +45,7 @@ namespace L11_Canvas {
         }
     }
     // Funktion um alles bisschen zu Zeichenen :D
-    function drawBackground(): void {
+   /* function drawBackground(): void {
 
 
         // Wasser
@@ -89,7 +90,7 @@ namespace L11_Canvas {
         crc2.fill();
     }
 
-
+*/
     animate();
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
     function animate(): void {
@@ -127,7 +128,7 @@ namespace L11_Canvas {
 
 
     // Funktion um Schatzdruhe zu zeichnen    
-    function drawChest(): void {
+   /* function drawChest(): void {
 
 
         crc2.fillStyle = "#7d4700";
@@ -141,6 +142,8 @@ namespace L11_Canvas {
         crc2.lineTo(440, 590);
         crc2.stroke();
     }
+    
+    */
 
 
 }
