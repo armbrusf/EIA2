@@ -9,10 +9,10 @@ namespace L11_Canvas {
         }
 
         move(): void {
-            this.y += 10;
+            this.y += 2;
 
-            if (this.y > 1320) {
-                this.y = 1320;
+            if (this.y > 740) {
+                this.y = 740;
             }
 
         }

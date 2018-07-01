@@ -10,6 +10,7 @@ var L11_Canvas;
         console.log(L11_Canvas.crc2);
         // Funktionsaufrufe
         L11_Canvas.drawAllBackgrounds();
+        canvas.addEventListener("click", insertNewObject);
         // Animation 
         for (let i = 0; i < nFish; i++) {
             let fish = new L11_Canvas.Fish(Math.random() * L11_Canvas.crc2.canvas.width, Math.random() * 500);
@@ -17,16 +18,22 @@ var L11_Canvas;
             //fish.y = Math.random() * 500;
             objects.push(fish);
         }
-        /* for (let i: number = 0; i < nBubble; i++) {
-             let bubble: Bubble = new Bubble();
-             //bubble.x = Math.random() * (400 - 350) + 350;
-             //bubble.y = Math.random() * crc2.canvas.height - 200;
-             //bubble.r = Math.random() * 10;
-             objects.push(bubble);
-         }
-         */
+        for (let i = 0; i < nBubble; i++) {
+            let bubble = new L11_Canvas.Bubble(Math.random() * (400 - 350) + 350, Math.random() * L11_Canvas.crc2.canvas.height - 200);
+            //bubble.x = Math.random() * (400 - 350) + 350;
+            //bubble.y = Math.random() * crc2.canvas.height - 200;
+            bubble.r = Math.random() * 10;
+            objects.push(bubble);
+        }
     }
     animate();
+    function insertNewObject(_event) {
+        let cx = _event.pageX;
+        let cy = _event.pageY;
+        let flake = new L11_Canvas.Food(cx, cy);
+        flake.r = Math.random() * 10;
+        objects.push(flake);
+    }
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
     function animate() {
         window.setTimeout(animate, 25);

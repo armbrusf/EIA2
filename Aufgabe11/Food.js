@@ -5,9 +5,9 @@ var L11_Canvas;
             super(_x, _y);
         }
         move() {
-            this.y += 10;
-            if (this.y > 1320) {
-                this.y = 1320;
+            this.y += 2;
+            if (this.y > 740) {
+                this.y = 740;
             }
         }
         draw() {

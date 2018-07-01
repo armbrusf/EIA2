@@ -5,6 +5,7 @@ namespace L11_Canvas {
     let nBubble: number = 15;
     export let imagedata: ImageData;
     export let crc2: CanvasRenderingContext2D;
+    
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -13,6 +14,7 @@ namespace L11_Canvas {
 
         // Funktionsaufrufe
         drawAllBackgrounds();
+        canvas.addEventListener("click", insertNewObject);
 
 
         // Animation 
@@ -25,19 +27,28 @@ namespace L11_Canvas {
 
 
 
-       /* for (let i: number = 0; i < nBubble; i++) {
-            let bubble: Bubble = new Bubble();
+        for (let i: number = 0; i < nBubble; i++) {
+            let bubble: Bubble = new Bubble(Math.random() * (400 - 350) + 350, Math.random() * crc2.canvas.height - 200 );
             //bubble.x = Math.random() * (400 - 350) + 350;
             //bubble.y = Math.random() * crc2.canvas.height - 200;
-            //bubble.r = Math.random() * 10;
+            bubble.r = Math.random() * 10;
             objects.push(bubble);
         }
-        */
+        
         
     }
         
 
     animate();
+    
+    function insertNewObject(_event: MouseEvent): void {
+        let cx: number = _event.pageX
+        let cy: number = _event.pageY;
+        let flake: Food = new Food(cx, cy);
+        flake.r = Math.random() * 10;
+        objects.push(flake);
+}
+    
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
     function animate(): void {
         window.setTimeout(animate, 25);
