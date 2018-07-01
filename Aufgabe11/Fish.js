@@ -1,6 +1,9 @@
 var L11_Canvas;
 (function (L11_Canvas) {
-    class Fish {
+    class Fish extends L11_Canvas.MovingObjects {
+        constructor(_x, _y) {
+            super(_x, _y);
+        }
         move() {
             this.x -= 2;
             if (this.x < -110) {
@@ -21,7 +24,5 @@ var L11_Canvas;
         }
     }
     L11_Canvas.Fish = Fish;
-    function ohneSinn() { }
-    ;
 })(L11_Canvas || (L11_Canvas = {}));
 //# sourceMappingURL=Fish.js.map

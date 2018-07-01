@@ -1,6 +1,9 @@
 var L11_Canvas;
 (function (L11_Canvas) {
-    class Bubble {
+    class Bubble extends L11_Canvas.MovingObjects {
+        constructor(_x, _y) {
+            super(_x, _y);
+        }
         move() {
             this.y -= 2;
             if (this.y < -5) {
@@ -17,7 +20,5 @@ var L11_Canvas;
         }
     }
     L11_Canvas.Bubble = Bubble;
-    function ohneSinn() { }
-    ;
 })(L11_Canvas || (L11_Canvas = {}));
 //# sourceMappingURL=Bubble.js.map

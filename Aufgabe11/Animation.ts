@@ -2,7 +2,9 @@ namespace L11_Canvas {
     window.addEventListener("load", init);
     let fishes: Fish[] = [];
     let bubbles: Bubble[] = [];
-    let n: number = 7;
+    let objects: MovingObjects[] = [];
+    let nFish: number = 7;
+    let nBubble: number = 15;
     let imagedata: ImageData;
     export let crc2: CanvasRenderingContext2D;
 
@@ -24,21 +26,21 @@ namespace L11_Canvas {
 
 
         // Animation 
-        for (let i: number = 0; i < n; i++) {
+        for (let i: number = 0; i < nFish; i++) {
             let fish: Fish = new Fish();
-            fish.x = Math.random() * crc2.canvas.width;
-            fish.y = Math.random() * 500;
-            fishes.push(fish);
+            //fish.x = Math.random() * crc2.canvas.width;
+            //fish.y = Math.random() * 500;
+            objects.push(fish);
         }
 
 
 
-        for (let i: number = 0; i < 15; i++) {
+        for (let i: number = 0; i < nBubble; i++) {
             let bubble: Bubble = new Bubble();
-            bubble.x = Math.random() * (400 - 350) + 350;
-            bubble.y = Math.random() * crc2.canvas.height - 200;
-            bubble.r = Math.random() * 10;
-            bubbles.push(bubble);
+            //bubble.x = Math.random() * (400 - 350) + 350;
+            //bubble.y = Math.random() * crc2.canvas.height - 200;
+            //bubble.r = Math.random() * 10;
+            objects.push(bubble);
         }
     }
     // Funktion um alles bisschen zu Zeichenen :D
@@ -139,6 +141,6 @@ namespace L11_Canvas {
         crc2.lineTo(440, 590);
         crc2.stroke();
     }
-    function ohneSinn(): void {};
+
 
 }

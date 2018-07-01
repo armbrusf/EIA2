@@ -1,17 +1,19 @@
 namespace L11_Canvas {
 
-    export class Fish {
-        x: number;
-        y: number;
-        
-        
+    export class Fish extends MovingObjects {
+
+
+        constructor(_x: number, _y: number) {
+            super(_x, _y);
+        }
+
         move(): void {
             this.x -= 2;
-            
+
             if (this.x < -110) {
                 this.x = 600;
             }
-}
+        }
 
         draw(): void {
             crc2.fillStyle = "#FFBF00";
@@ -28,6 +30,6 @@ namespace L11_Canvas {
             crc2.fill();
         }
     }
-    function ohneSinn(): void {};
+
 
 }

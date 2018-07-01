@@ -1,10 +1,9 @@
 var L11_Canvas;
 (function (L11_Canvas) {
     class MovingObjects {
-        constructor(_x, _y, _color) {
+        constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
-            this.color = _color;
         }
         move() {
             ;

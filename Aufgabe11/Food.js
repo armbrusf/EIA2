@@ -1,8 +1,8 @@
 var L11_Canvas;
 (function (L11_Canvas) {
     class Food extends L11_Canvas.MovingObjects {
-        constructor(_x, _y, _color) {
-            super(_x, _y, _color);
+        constructor(_x, _y) {
+            super(_x, _y);
         }
         move() {
             this.y += 10;
@@ -20,7 +20,6 @@ var L11_Canvas;
             L11_Canvas.crc2.lineTo(this.x - 6, this.y + 3);
             L11_Canvas.crc2.closePath();
             L11_Canvas.crc2.stroke();
-            L11_Canvas.crc2.fillStyle = this.color;
             L11_Canvas.crc2.fill();
         }
     }

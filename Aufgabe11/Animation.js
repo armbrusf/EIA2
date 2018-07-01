@@ -111,4 +111,4 @@ var L11_Canvas;
     function ohneSinn() { }
     ;
 })(L11_Canvas || (L11_Canvas = {}));
-//# sourceMappingURL=Canvas.js.map
+//# sourceMappingURL=Animation.js.map

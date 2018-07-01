@@ -3,8 +3,8 @@ namespace L11_Canvas {
     export class Food extends MovingObjects {
         r: number;
 
-        constructor(_x: number, _y: number, _color: string) {
-            super(_x, _y, _color);
+        constructor(_x: number, _y: number) {
+            super(_x, _y);
 
         }
 
@@ -27,7 +27,6 @@ namespace L11_Canvas {
             crc2.lineTo(this.x - 6, this.y + 3);
             crc2.closePath();
             crc2.stroke();
-            crc2.fillStyle = this.color;
             crc2.fill();
         }
 
