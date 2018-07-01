@@ -17,21 +17,22 @@ namespace L11_Canvas {
 
         // Animation 
         for (let i: number = 0; i < nFish; i++) {
-            let fish: Fish = new Fish();
-            fish.x = Math.random() * crc2.canvas.width;
-            fish.y = Math.random() * 500;
+            let fish: Fish = new Fish(Math.random() * crc2.canvas.width, Math.random() * 500);
+            //fish.x = Math.random() * crc2.canvas.width;
+            //fish.y = Math.random() * 500;
             objects.push(fish);
         }
 
 
 
-        for (let i: number = 0; i < nBubble; i++) {
+       /* for (let i: number = 0; i < nBubble; i++) {
             let bubble: Bubble = new Bubble();
             //bubble.x = Math.random() * (400 - 350) + 350;
             //bubble.y = Math.random() * crc2.canvas.height - 200;
             //bubble.r = Math.random() * 10;
             objects.push(bubble);
         }
+        */
         
     }
         
@@ -42,31 +43,31 @@ namespace L11_Canvas {
         window.setTimeout(animate, 25);
 
         crc2.putImageData(imagedata, 0, 0);
-        moveFishes();
-        drawFishes();
+        moveobjects();
+        drawobjects();
         moveBubbles();
         drawBubbles();
     }
     // Fische bewegen und zeichnen
-    function moveFishes(): void {
-        for (let i: number = 0; i < fishes.length; i++) {
+    function moveobjects(): void {
+        for (let i: number = 0; i < objects.length; i++) {
             objects[i].move();
         }
     }
 
-    function drawFishes(): void {
-        for (let i: number = 0; i < fishes.length; i++)
+    function drawobjects(): void {
+        for (let i: number = 0; i < objects.length; i++)
             objects[i].draw();
     }
 
     function moveBubbles(): void {
-        for (let i: number = 0; i < bubbles.length; i++) {
+        for (let i: number = 0; i < objects.length; i++) {
             objects[i].move();
         }
     }
 
     function drawBubbles(): void {
-        for (let i: number = 0; i < bubbles.length; i++) {
+        for (let i: number = 0; i < objects.length; i++) {
             objects[i].draw();
         }
     }
