@@ -31,7 +31,7 @@ var L11_Canvas;
         let cx = _event.pageX;
         let cy = _event.pageY;
         let flake = new L11_Canvas.Food(cx, cy);
-        flake.r = Math.random() * 10;
+        flake.r = Math.random() * 4;
         objects.push(flake);
     }
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen

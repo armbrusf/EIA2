@@ -45,7 +45,7 @@ namespace L11_Canvas {
         let cx: number = _event.pageX
         let cy: number = _event.pageY;
         let flake: Food = new Food(cx, cy);
-        flake.r = Math.random() * 10;
+        flake.r = Math.random() * 4;
         objects.push(flake);
 }
     

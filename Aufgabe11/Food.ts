@@ -16,7 +16,7 @@ namespace L11_Canvas {
             }
 
         }
-
+/*
         draw(): void {
             crc2.beginPath();
             crc2.moveTo(this.x - 6, this.y);
@@ -29,6 +29,18 @@ namespace L11_Canvas {
             crc2.stroke();
             crc2.fill();
         }
+        */
+        
+        draw(): void {
+
+            crc2.fillStyle = "#3B240B";
+            crc2.beginPath();
+            crc2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+        }
+        
 
     }
 }

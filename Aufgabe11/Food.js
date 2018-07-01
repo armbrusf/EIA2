@@ -10,14 +10,24 @@ var L11_Canvas;
                 this.y = 740;
             }
         }
+        /*
+                draw(): void {
+                    crc2.beginPath();
+                    crc2.moveTo(this.x - 6, this.y);
+                    crc2.lineTo(this.x + 12, this.y + 12);
+                    crc2.lineTo(this.x + 10, this.y - 3);
+                    crc2.lineTo(this.x + 3, this.y + 20);
+                    crc2.lineTo(this.x + - 3, this.y + 9);
+                    crc2.lineTo(this.x - 6, this.y + 3);
+                    crc2.closePath();
+                    crc2.stroke();
+                    crc2.fill();
+                }
+                */
         draw() {
+            L11_Canvas.crc2.fillStyle = "#3B240B";
             L11_Canvas.crc2.beginPath();
-            L11_Canvas.crc2.moveTo(this.x - 6, this.y);
-            L11_Canvas.crc2.lineTo(this.x + 12, this.y + 12);
-            L11_Canvas.crc2.lineTo(this.x + 10, this.y - 3);
-            L11_Canvas.crc2.lineTo(this.x + 3, this.y + 20);
-            L11_Canvas.crc2.lineTo(this.x + -3, this.y + 9);
-            L11_Canvas.crc2.lineTo(this.x - 6, this.y + 3);
+            L11_Canvas.crc2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
             L11_Canvas.crc2.closePath();
             L11_Canvas.crc2.stroke();
             L11_Canvas.crc2.fill();
