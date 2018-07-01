@@ -29,8 +29,8 @@ namespace L11_Canvas {
         // Animation 
         for (let i: number = 0; i < nFish; i++) {
             let fish: Fish = new Fish();
-            //fish.x = Math.random() * crc2.canvas.width;
-            //fish.y = Math.random() * 500;
+            fish.x = Math.random() * crc2.canvas.width;
+            fish.y = Math.random() * 500;
             objects.push(fish);
         }
 
@@ -105,24 +105,24 @@ namespace L11_Canvas {
     // Fische bewegen und zeichnen
     function moveFishes(): void {
         for (let i: number = 0; i < fishes.length; i++) {
-            fishes[i].move();
+            objects[i].move();
         }
     }
 
     function drawFishes(): void {
         for (let i: number = 0; i < fishes.length; i++)
-            fishes[i].draw();
+            objects[i].draw();
     }
 
     function moveBubbles(): void {
         for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].move();
+            objects[i].move();
         }
     }
 
     function drawBubbles(): void {
         for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].draw();
+            objects[i].draw();
         }
     }
 
