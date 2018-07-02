@@ -20,4 +20,4 @@ var L11_Inheritance;
     }
     L11_Inheritance.Circle = Circle;
 })(L11_Inheritance || (L11_Inheritance = {}));
-//# sourceMappingURL=Circle.js.map
+//# sourceMappingURL=Triangle.js.map
