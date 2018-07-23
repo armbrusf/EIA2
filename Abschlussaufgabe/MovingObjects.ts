@@ -1,4 +1,4 @@
-namespace L11_Canvas {
+namespace L12_Canvas {
 
     export class MovingObjects {
         x: number;
@@ -7,7 +7,11 @@ namespace L11_Canvas {
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
+            }
 
+            update(): void {
+            this.move();
+            this.draw();
         }
         move(): void {
             ;
@@ -15,5 +19,7 @@ namespace L11_Canvas {
         draw(): void {
             ;
         }
+        
     }
+
 }

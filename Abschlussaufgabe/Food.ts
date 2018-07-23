@@ -1,4 +1,4 @@
-namespace L11_Canvas {
+namespace L12_Canvas {
 
     export class Food extends MovingObjects {
         r: number;
@@ -16,20 +16,7 @@ namespace L11_Canvas {
             }
 
         }
-/*
-        draw(): void {
-            crc2.beginPath();
-            crc2.moveTo(this.x - 6, this.y);
-            crc2.lineTo(this.x + 12, this.y + 12);
-            crc2.lineTo(this.x + 10, this.y - 3);
-            crc2.lineTo(this.x + 3, this.y + 20);
-            crc2.lineTo(this.x + - 3, this.y + 9);
-            crc2.lineTo(this.x - 6, this.y + 3);
-            crc2.closePath();
-            crc2.stroke();
-            crc2.fill();
-        }
-        */
+
         
         draw(): void {
 

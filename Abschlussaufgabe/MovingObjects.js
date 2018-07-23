@@ -1,9 +1,13 @@
-var L11_Canvas;
-(function (L11_Canvas) {
+var L12_Canvas;
+(function (L12_Canvas) {
     class MovingObjects {
         constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
+        }
+        update() {
+            this.move();
+            this.draw();
         }
         move() {
             ;
@@ -12,6 +16,6 @@ var L11_Canvas;
             ;
         }
     }
-    L11_Canvas.MovingObjects = MovingObjects;
-})(L11_Canvas || (L11_Canvas = {}));
+    L12_Canvas.MovingObjects = MovingObjects;
+})(L12_Canvas || (L12_Canvas = {}));
 //# sourceMappingURL=MovingObjects.js.map
