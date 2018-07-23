@@ -1,20 +1,17 @@
 namespace L12_Canvas {
 
-    export class Mixer extends MovingObjects {
-        r: number;
+    export class Mixer extends MovingObjects {     
         dx:number;
 
-        constructor(_x: number, _y: number) {
+        constructor(_x: number, _y: number, _r: number) {
             super(_x, _y);
             this.x = _x;
             this.y = _y;
+            this.r = _r;
             this.dx = _x;
             this.move();
             
         }
-
-
-
         
             move(): void {
             const speed = 10 * (600/800);
@@ -26,10 +23,6 @@ namespace L12_Canvas {
             this.x += movement;
             
             this.draw();
-        
-            
-
-
         }
         
         
@@ -92,18 +85,6 @@ namespace L12_Canvas {
             crc2.stroke();
             crc2.fill();            
             crc2.closePath();
-            
-
-
-
-
         }
-
-
     }
-
-
-
-
-
 }

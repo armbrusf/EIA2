@@ -1,10 +1,11 @@
 var L12_Canvas;
 (function (L12_Canvas) {
     class Mixer extends L12_Canvas.MovingObjects {
-        constructor(_x, _y) {
+        constructor(_x, _y, _r) {
             super(_x, _y);
             this.x = _x;
             this.y = _y;
+            this.r = _r;
             this.dx = _x;
             this.move();
         }

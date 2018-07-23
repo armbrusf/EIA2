@@ -1,8 +1,8 @@
 namespace L12_Canvas {
     window.addEventListener("load", init);
     let objects: MovingObjects[] = [];
-    let nFish: number = 5;
-    let nBubble: number = 1;
+    let nApfel: number = 5;
+    let nMixer: number = 1;
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
     export let clMixer: Mixer;
@@ -11,8 +11,6 @@ namespace L12_Canvas {
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-        //canvas.width = canvas.clientWidth;
-        //canvas.height = canvas.clientHeight;
         crc2 = canvas.getContext("2d");
 
 
@@ -23,23 +21,14 @@ namespace L12_Canvas {
 
 
         // Animation 
-        for (let i: number = 0; i < nFish; i++) {
+        for (let i: number = 0; i < nApfel; i++) {
             let apple: Apple = new Apple(Math.random() * crc2.canvas.width - 50, Math.random() * (-800 - 200) - 200);
             objects.push(apple);
             apple.r = 2
         }
 
-
-
-        /*for (let i: number = 0; i < nBubble; i++) {
-            let mixer: Mixer = new Mixer(100, 600);
-            mixer.r = 20;
-            objects.push(mixer);
-        }
-        */
-
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        clMixer = new Mixer(100, 600);
+        clMixer = new Mixer(100, 600, 20);
         objects.push(clMixer);
 
         document.querySelector("body").addEventListener("keydown", function(e: KeyboardEvent) {
@@ -47,13 +36,11 @@ namespace L12_Canvas {
             switch (e.keyCode) {
                 //linke Pfeiltaste
                 case 37:
-                    console.log("Wieso passiert hier nichts");
-                    clMixer.move_Mixer(30 * (600 / 800));
+                    clMixer.move_Mixer(document.querySelector('canvas').clientWidth - document.querySelector('canvas').clientWidth);
                     break;
                 //rechte Pfeiltaste
                 case 39:
-                    console.log("Wieso passiert hier nichts");
-                    clMixer.move_Mixer(document.querySelector('canvas').clientWidth);
+                    clMixer.move_Mixer(document.querySelector('canvas').clientWidth - 100);
                     break;
             }
         });
@@ -93,8 +80,7 @@ namespace L12_Canvas {
         crc2.putImageData(imageData, 0, 0);
         moveobjects();
         drawobjects();
-        //moveBubbles();
-        //drawBubbles();
+        
     }
     // Fische bewegen und zeichnen
     function moveobjects(): void {
@@ -108,16 +94,6 @@ namespace L12_Canvas {
             objects[i].draw();
     }
 
-    /*function moveBubbles(): void {
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].move();
-        }
-    }
 
-    function drawBubbles(): void {
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].draw();
-        }
-    }
-*/
+
 }
