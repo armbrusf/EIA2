@@ -10,7 +10,6 @@ var L12_Canvas;
         L12_Canvas.crc2 = canvas.getContext("2d");
         // Funktionsaufrufe
         L12_Canvas.drawAllBackgrounds();
-        canvas.addEventListener("click", insertNewObject);
         // Animation 
         for (let i = 0; i < nApfel; i++) {
             let apple = new L12_Canvas.Apple(Math.random() * ((L12_Canvas.crc2.canvas.width - 50) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50)) + (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 25), Math.random() * (-800 - 200) - 200);
@@ -60,13 +59,6 @@ var L12_Canvas;
         L12_Canvas.crc2.putImageData(L12_Canvas.imageData, 0, 0);
     }
     animate();
-    function insertNewObject(_event) {
-        let cx = _event.pageX;
-        let cy = _event.pageY;
-        let flake = new L12_Canvas.Food(cx, cy);
-        flake.r = Math.random() * 4;
-        objects.push(flake);
-    }
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
     function animate() {
         window.setTimeout(animate, 25);

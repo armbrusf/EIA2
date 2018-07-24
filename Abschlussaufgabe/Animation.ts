@@ -13,14 +13,14 @@ namespace L12_Canvas {
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        
-        
+
+
 
 
 
         // Funktionsaufrufe
         drawAllBackgrounds();
-        canvas.addEventListener("click", insertNewObject);
+
 
 
         // Animation 
@@ -95,13 +95,6 @@ namespace L12_Canvas {
     animate();
 
 
-    function insertNewObject(_event: MouseEvent): void {
-        let cx: number = _event.pageX
-        let cy: number = _event.pageY;
-        let flake: Food = new Food(cx, cy);
-        flake.r = Math.random() * 4;
-        objects.push(flake);
-    }
 
 
 
@@ -131,7 +124,7 @@ namespace L12_Canvas {
             }
 
             if (nLeftApple >= nApfel) {
-                
+
                 alert("Glückwunsch du hast " + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
 
