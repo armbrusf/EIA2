@@ -2,7 +2,7 @@ var L12_Canvas;
 (function (L12_Canvas) {
     window.addEventListener("load", init);
     let objects = [];
-    let nApfel = 10;
+    let nApfel = 15;
     let nLeftApple = 0;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -84,7 +84,7 @@ var L12_Canvas;
                 nLeftApple++;
             }
             if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                alert("Glückwunsch du hast" + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
             }
         }

@@ -1,7 +1,7 @@
 namespace L12_Canvas {
     window.addEventListener("load", init);
     let objects: MovingObjects[] = [];
-    let nApfel: number = 10;
+    let nApfel: number = 15;
     let nLeftApple: number = 0
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
@@ -128,7 +128,8 @@ namespace L12_Canvas {
             }
 
             if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                
+                alert("Glückwunsch du hast" + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
 
             }
