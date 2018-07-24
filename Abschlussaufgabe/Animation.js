@@ -45,6 +45,19 @@ var L12_Canvas;
                     break;
             }
         });
+        //Funktion Handy touch
+        document.querySelector("body").addEventListener("touchstart", function (e) {
+            const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
+            L12_Canvas.mixer.move_Mixer(canvasTouchPosX);
+        });
+        document.querySelector("body").addEventListener("touchmove", function (e) {
+            const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
+            L12_Canvas.mixer.move_Mixer(canvasTouchPosX);
+        });
+        document.querySelector("body").addEventListener("touchend", function (e) {
+            L12_Canvas.mixer.stop_Mixer();
+        });
+        L12_Canvas.crc2.putImageData(L12_Canvas.imageData, 0, 0);
     }
     animate();
     function insertNewObject(_event) {

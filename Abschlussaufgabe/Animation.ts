@@ -69,26 +69,26 @@ namespace L12_Canvas {
 
             const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
 
-            clkrabbe.move_Krabbe(canvasTouchPosX);
+            mixer.move_Mixer(canvasTouchPosX);
         });
 
         document.querySelector("body").addEventListener("touchmove", function(e: TouchEvent) {
 
             const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
 
-            clkrabbe.move_Krabbe(canvasTouchPosX);
+            mixer.move_Mixer(canvasTouchPosX);
         });
 
         document.querySelector("body").addEventListener("touchend", function(e: TouchEvent) {
-            clkrabbe.stop_Krabbe();
+            mixer.stop_Mixer();
         });
 
 
-        crc2.putImageData(imgData, 0, 0);
+        crc2.putImageData(imageData, 0, 0);
 
     }
 
-}
+
 
 
 animate();
