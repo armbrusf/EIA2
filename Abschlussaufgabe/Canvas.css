@@ -1,9 +1,9 @@
 @media screen and (min-width:16em) {
 
 body canvas{
-	margin-left: 10%;
-  width: 80%;
- height: 80%;
+	
+  width: 100%;
+ height: 100%;
 }
 }
 
