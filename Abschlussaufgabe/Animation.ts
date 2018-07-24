@@ -44,7 +44,7 @@ namespace L12_Canvas {
                     break;
                 //rechte Pfeiltaste
                 case 39:
-                    mixer.move_Mixer(document.querySelector('canvas').clientWidth);
+                    mixer.move_Mixer(document.querySelector('canvas').clientWidth - 100);
                     break;
             }
         });

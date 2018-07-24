@@ -28,7 +28,7 @@ var L12_Canvas;
                     break;
                 //rechte Pfeiltaste
                 case 39:
-                    L12_Canvas.mixer.move_Mixer(document.querySelector('canvas').clientWidth);
+                    L12_Canvas.mixer.move_Mixer(document.querySelector('canvas').clientWidth - 100);
                     break;
             }
         });
