@@ -130,8 +130,9 @@ function whereIsMyApple(): void {
         }
 
         if (nLeftApple >= nApfel) {
-            alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy")
+            alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy");
             location.reload(true);
+            
         }
     }
 }
