@@ -3,6 +3,7 @@ namespace L12_Canvas {
     let objects: MovingObjects[] = [];
     let nApfel: number = 10;
     let nMixer: number = 1;
+    let nLeftApple: number = 0
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
     export let clMixer: Mixer;
@@ -22,9 +23,9 @@ namespace L12_Canvas {
 
         // Animation 
         for (let i: number = 0; i < nApfel; i++) {
-            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) - (crc2.canvas.width - crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
-            objects.push(apple);
+            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
             apple.r = 2
+            objects.push(apple);
         }
 
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -98,10 +99,15 @@ namespace L12_Canvas {
             let apple = objects[i];
             let inside = clMixer.checkIfInside( apple.x, apple.y );
             
+            
 
             if ( inside ) {
                 objects.splice( i, 1 );
-               // updateHighscore( bubble.points );
+                nLeftApple++;
+            }
+            
+            if (nLeftApple >= nApfel){
+              alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie")  
             }
         }
 }
