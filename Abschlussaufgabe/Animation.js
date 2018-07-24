@@ -85,7 +85,7 @@ var L12_Canvas;
                 nLeftApple++;
             }
             if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy");
+                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
             }
         }
