@@ -35,9 +35,8 @@ namespace L12_Canvas {
 
 
 
-
+        //Anonyme Funktion für Pfeiltasten
         document.querySelector("body").addEventListener("keydown", function(e: KeyboardEvent) {
-            //const event: KeyboardEvent = window.event ? window.event : e;
             switch (e.keyCode) {
                 //linke Pfeiltaste
                 case 37:
@@ -45,13 +44,12 @@ namespace L12_Canvas {
                     break;
                 //rechte Pfeiltaste
                 case 39:
-                    mixer.move_Mixer(document.querySelector('canvas').clientWidth - 100);
+                    mixer.move_Mixer(document.querySelector('canvas').clientWidth);
                     break;
             }
         });
 
         document.querySelector("body").addEventListener("keyup", function(e: KeyboardEvent) {
-            //const event: KeyboardEvent = window.event ? window.event : e;
             switch (e.keyCode) {
                 //linke Pfeiltaste
                 case 37:
@@ -64,7 +62,7 @@ namespace L12_Canvas {
             }
         });
 
-        //Funktion Handy touch
+        //Anonyme Funktion für Touch auf dem Handy
         document.querySelector("body").addEventListener("touchstart", function(e: TouchEvent) {
 
             const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
@@ -91,63 +89,63 @@ namespace L12_Canvas {
 
 
 
-animate();
+    animate();
 
 
-function insertNewObject(_event: MouseEvent): void {
-    let cx: number = _event.pageX
-    let cy: number = _event.pageY;
-    let flake: Food = new Food(cx, cy);
-    flake.r = Math.random() * 4;
-    objects.push(flake);
-}
-
-
-
-
-// Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
-function animate(): void {
-    window.setTimeout(animate, 25);
-
-    crc2.putImageData(imageData, 0, 0);
-    moveobjects();
-    drawobjects();
-    whereIsMyApple();
-
-}
-
-function whereIsMyApple(): void {
-    window.setTimeout(whereIsMyApple, 25);
-    for (let i: number = 0; i < objects.length; i++) {
-        let apple = objects[i];
-        let inside = mixer.checkIfInside(apple.x, apple.y);
+    function insertNewObject(_event: MouseEvent): void {
+        let cx: number = _event.pageX
+        let cy: number = _event.pageY;
+        let flake: Food = new Food(cx, cy);
+        flake.r = Math.random() * 4;
+        objects.push(flake);
+    }
 
 
 
-        if (inside) {
-            objects.splice(i, 1);
-            nLeftApple++;
-        }
 
-        if (nLeftApple >= nApfel) {
-            alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
-            location.reload(true);
-            
+    // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
+    function animate(): void {
+        window.setTimeout(animate, 25);
+
+        crc2.putImageData(imageData, 0, 0);
+        moveobjects();
+        drawobjects();
+        whereIsMyApple();
+
+    }
+
+    function whereIsMyApple(): void {
+        window.setTimeout(whereIsMyApple, 25);
+        for (let i: number = 0; i < objects.length; i++) {
+            let apple = objects[i];
+            let inside = mixer.checkIfInside(apple.x, apple.y);
+
+
+
+            if (inside) {
+                objects.splice(i, 1);
+                nLeftApple++;
+            }
+
+            if (nLeftApple >= nApfel) {
+                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                location.reload(true);
+
+            }
         }
     }
-}
 
-// Fische bewegen und zeichnen
-function moveobjects(): void {
-    for (let i: number = 0; i < objects.length; i++) {
-        objects[i].move();
+    //Objecte bewegen und zeichnen
+    function moveobjects(): void {
+        for (let i: number = 0; i < objects.length; i++) {
+            objects[i].move();
+        }
     }
-}
 
-function drawobjects(): void {
-    for (let i: number = 0; i < objects.length; i++)
-        objects[i].draw();
-}
+    function drawobjects(): void {
+        for (let i: number = 0; i < objects.length; i++)
+            objects[i].draw();
+    }
 
 
 }

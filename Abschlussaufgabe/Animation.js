@@ -19,8 +19,8 @@ var L12_Canvas;
         L12_Canvas.imageData = L12_Canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
         L12_Canvas.mixer = new L12_Canvas.Mixer(100, 600, 20);
         objects.push(L12_Canvas.mixer);
+        //Anonyme Funktion für Pfeiltasten
         document.querySelector("body").addEventListener("keydown", function (e) {
-            //const event: KeyboardEvent = window.event ? window.event : e;
             switch (e.keyCode) {
                 //linke Pfeiltaste
                 case 37:
@@ -28,12 +28,11 @@ var L12_Canvas;
                     break;
                 //rechte Pfeiltaste
                 case 39:
-                    L12_Canvas.mixer.move_Mixer(document.querySelector('canvas').clientWidth - 100);
+                    L12_Canvas.mixer.move_Mixer(document.querySelector('canvas').clientWidth);
                     break;
             }
         });
         document.querySelector("body").addEventListener("keyup", function (e) {
-            //const event: KeyboardEvent = window.event ? window.event : e;
             switch (e.keyCode) {
                 //linke Pfeiltaste
                 case 37:
@@ -45,7 +44,7 @@ var L12_Canvas;
                     break;
             }
         });
-        //Funktion Handy touch
+        //Anonyme Funktion für Touch auf dem Handy
         document.querySelector("body").addEventListener("touchstart", function (e) {
             const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
             L12_Canvas.mixer.move_Mixer(canvasTouchPosX);
@@ -90,7 +89,7 @@ var L12_Canvas;
             }
         }
     }
-    // Fische bewegen und zeichnen
+    //Objecte bewegen und zeichnen
     function moveobjects() {
         for (let i = 0; i < objects.length; i++) {
             objects[i].move();
