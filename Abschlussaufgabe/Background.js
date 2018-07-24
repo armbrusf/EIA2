@@ -35,18 +35,6 @@ var L12_Canvas;
         L12_Canvas.crc2.lineTo(600, 800);
         L12_Canvas.crc2.lineTo(0, 800);
         L12_Canvas.crc2.fill();
-        // 
-        L12_Canvas.crc2.fillStyle = "#B03232";
-        L12_Canvas.crc2.beginPath();
-        L12_Canvas.crc2.moveTo(this.x, this.y);
-        L12_Canvas.crc2.quadraticCurveTo(this.x + 10, this.y - 10, this.x + 20, this.y);
-        L12_Canvas.crc2.lineTo(this.x + 20, this.y - 10);
-        L12_Canvas.crc2.lineTo(this.x + 20, this.y);
-        L12_Canvas.crc2.quadraticCurveTo(this.x + 30, this.y - 10, this.x + 40, this.y);
-        L12_Canvas.crc2.quadraticCurveTo(this.x + 45, this.y + 40, this.x + 20, this.y + 40);
-        L12_Canvas.crc2.quadraticCurveTo(this.x - 5, this.y + 40, this.x, this.y);
-        L12_Canvas.crc2.stroke();
-        L12_Canvas.crc2.fill();
     }
 })(L12_Canvas || (L12_Canvas = {}));
 //# sourceMappingURL=Background.js.map
