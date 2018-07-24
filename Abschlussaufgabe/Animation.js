@@ -63,7 +63,7 @@ var L12_Canvas;
         whereIsMyApple();
     }
     function whereIsMyApple() {
-        window.setTimeout(whereIsMyApple, 10);
+        window.setTimeout(whereIsMyApple, 25);
         for (let i = 0; i < objects.length; i++) {
             let apple = objects[i];
             let inside = L12_Canvas.mixer.checkIfInside(apple.x, apple.y);

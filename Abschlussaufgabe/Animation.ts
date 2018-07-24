@@ -93,7 +93,7 @@ namespace L12_Canvas {
     }
     
      function whereIsMyApple(): void {
-        window.setTimeout( whereIsMyApple, 10 );
+        window.setTimeout( whereIsMyApple, 25 );
         for ( let i: number = 0; i < objects.length; i++ ) {
             let apple = objects[i];
             let inside = mixer.checkIfInside( apple.x, apple.y );
