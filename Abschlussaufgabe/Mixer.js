@@ -3,6 +3,8 @@ var L12_Canvas;
     class Mixer extends L12_Canvas.MovingObjects {
         constructor(_x, _y, _r) {
             super(_x, _y);
+            this.mixerWidth = 50;
+            this.mixerHight = 100;
             this.x = _x;
             this.y = _y;
             this.r = _r;
@@ -24,6 +26,12 @@ var L12_Canvas;
         }
         stop_Mixer() {
             this.dx = this.x;
+        }
+        checkIfInside(_x, _y) {
+            if (_x > this.x && _x < (this.x + this.mixerWidth) && _y > this.y && _y < this.y + this.mixerHight) {
+                return true;
+            }
+            return false;
         }
         draw() {
             L12_Canvas.crc2.fillStyle = "#F4F8FB";

@@ -28,8 +28,13 @@ namespace L12_Canvas {
         }
 
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        clMixer = new Mixer(100, 600, 20);
+        clMixer = new Mixer(100, 0, 20);
         objects.push(clMixer);
+        
+
+
+        
+
 
         document.querySelector("body").addEventListener("keydown", function(e: KeyboardEvent) {
             //const event: KeyboardEvent = window.event ? window.event : e;
@@ -63,6 +68,7 @@ namespace L12_Canvas {
 
 
     animate();
+    
 
     function insertNewObject(_event: MouseEvent): void {
         let cx: number = _event.pageX
@@ -71,6 +77,8 @@ namespace L12_Canvas {
         flake.r = Math.random() * 4;
         objects.push(flake);
     }
+    
+    
 
 
     // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
@@ -80,8 +88,24 @@ namespace L12_Canvas {
         crc2.putImageData(imageData, 0, 0);
         moveobjects();
         drawobjects();
+        whereIsMyApple();
         
     }
+    
+     function whereIsMyApple(): void {
+        window.setTimeout( whereIsMyApple, 10 );
+        for ( let i: number = 0; i < objects.length; i++ ) {
+            let apple = objects[i];
+            let inside = clMixer.checkIfInside( apple.x, apple.y );
+            
+
+            if ( inside ) {
+                objects.splice( i, 1 );
+               // updateHighscore( bubble.points );
+            }
+        }
+}
+    
     // Fische bewegen und zeichnen
     function moveobjects(): void {
         for (let i: number = 0; i < objects.length; i++) {
@@ -93,7 +117,6 @@ namespace L12_Canvas {
         for (let i: number = 0; i < objects.length; i++)
             objects[i].draw();
     }
-
 
 
 }

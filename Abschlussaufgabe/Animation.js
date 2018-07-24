@@ -17,7 +17,7 @@ var L12_Canvas;
             apple.r = 2;
         }
         L12_Canvas.imageData = L12_Canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        L12_Canvas.clMixer = new L12_Canvas.Mixer(100, 600, 20);
+        L12_Canvas.clMixer = new L12_Canvas.Mixer(100, 0, 20);
         objects.push(L12_Canvas.clMixer);
         document.querySelector("body").addEventListener("keydown", function (e) {
             //const event: KeyboardEvent = window.event ? window.event : e;
@@ -60,6 +60,17 @@ var L12_Canvas;
         L12_Canvas.crc2.putImageData(L12_Canvas.imageData, 0, 0);
         moveobjects();
         drawobjects();
+        whereIsMyApple();
+    }
+    function whereIsMyApple() {
+        window.setTimeout(whereIsMyApple, 10);
+        for (let i = 0; i < objects.length; i++) {
+            let apple = objects[i];
+            let inside = L12_Canvas.clMixer.checkIfInside(apple.x, apple.y);
+            if (inside) {
+                objects.splice(i, 1);
+            }
+        }
     }
     // Fische bewegen und zeichnen
     function moveobjects() {
