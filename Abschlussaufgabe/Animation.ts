@@ -6,12 +6,15 @@ namespace L12_Canvas {
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
     export let mixer: Mixer;
+    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  ->")
 
 
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        
+        
 
 
 
@@ -129,7 +132,7 @@ namespace L12_Canvas {
 
             if (nLeftApple >= nApfel) {
                 
-                alert("Glückwunsch du hast" + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                alert("Glückwunsch du hast " + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
 
             }

@@ -4,6 +4,7 @@ var L12_Canvas;
     let objects = [];
     let nApfel = 15;
     let nLeftApple = 0;
+    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  ->");
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         L12_Canvas.crc2 = canvas.getContext("2d");
@@ -84,7 +85,7 @@ var L12_Canvas;
                 nLeftApple++;
             }
             if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast" + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                alert("Glückwunsch du hast " + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
             }
         }
