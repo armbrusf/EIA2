@@ -22,7 +22,7 @@ namespace L12_Canvas {
 
         // Animation 
         for (let i: number = 0; i < nApfel; i++) {
-            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 25), Math.random() * (-800 - 200) - 200);
+            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width - 50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 25), Math.random() * (-800 - 200) - 200);
             apple.r = 2
             objects.push(apple);
         }
@@ -30,10 +30,10 @@ namespace L12_Canvas {
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         mixer = new Mixer(100, 600, 20);
         objects.push(mixer);
-        
 
 
-        
+
+
 
 
         document.querySelector("body").addEventListener("keydown", function(e: KeyboardEvent) {
@@ -64,65 +64,89 @@ namespace L12_Canvas {
             }
         });
 
+        //Funktion Handy touch
+        document.querySelector("body").addEventListener("touchstart", function(e: TouchEvent) {
+
+            const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
+
+            clkrabbe.move_Krabbe(canvasTouchPosX);
+        });
+
+        document.querySelector("body").addEventListener("touchmove", function(e: TouchEvent) {
+
+            const canvasTouchPosX = e.touches.item(0).clientX - document.querySelector('canvas').clientLeft;
+
+            clkrabbe.move_Krabbe(canvasTouchPosX);
+        });
+
+        document.querySelector("body").addEventListener("touchend", function(e: TouchEvent) {
+            clkrabbe.stop_Krabbe();
+        });
+
+
+        crc2.putImageData(imgData, 0, 0);
+
     }
 
-
-    animate();
-    
-
-    function insertNewObject(_event: MouseEvent): void {
-        let cx: number = _event.pageX
-        let cy: number = _event.pageY;
-        let flake: Food = new Food(cx, cy);
-        flake.r = Math.random() * 4;
-        objects.push(flake);
-    }
-    
-    
-
-
-    // Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
-    function animate(): void {
-        window.setTimeout(animate, 25);
-
-        crc2.putImageData(imageData, 0, 0);
-        moveobjects();
-        drawobjects();
-        whereIsMyApple();
-        
-    }
-    
-     function whereIsMyApple(): void {
-        window.setTimeout( whereIsMyApple, 25 );
-        for ( let i: number = 0; i < objects.length; i++ ) {
-            let apple = objects[i];
-            let inside = mixer.checkIfInside( apple.x, apple.y );
-            
-            
-
-            if ( inside ) {
-                objects.splice( i, 1 );
-                nLeftApple++;
-            }
-            
-            if (nLeftApple >= nApfel){
-              alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy")
-                location.reload(true);  
-            }
-        }
 }
-    
-    // Fische bewegen und zeichnen
-    function moveobjects(): void {
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].move();
+
+
+animate();
+
+
+function insertNewObject(_event: MouseEvent): void {
+    let cx: number = _event.pageX
+    let cy: number = _event.pageY;
+    let flake: Food = new Food(cx, cy);
+    flake.r = Math.random() * 4;
+    objects.push(flake);
+}
+
+
+
+
+// Alle 10 Millisekunden Funktion erneut aufrufen um bewegung zu erzeugen
+function animate(): void {
+    window.setTimeout(animate, 25);
+
+    crc2.putImageData(imageData, 0, 0);
+    moveobjects();
+    drawobjects();
+    whereIsMyApple();
+
+}
+
+function whereIsMyApple(): void {
+    window.setTimeout(whereIsMyApple, 25);
+    for (let i: number = 0; i < objects.length; i++) {
+        let apple = objects[i];
+        let inside = mixer.checkIfInside(apple.x, apple.y);
+
+
+
+        if (inside) {
+            objects.splice(i, 1);
+            nLeftApple++;
+        }
+
+        if (nLeftApple >= nApfel) {
+            alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy")
+            location.reload(true);
         }
     }
+}
 
-    function drawobjects(): void {
-        for (let i: number = 0; i < objects.length; i++)
-            objects[i].draw();
+// Fische bewegen und zeichnen
+function moveobjects(): void {
+    for (let i: number = 0; i < objects.length; i++) {
+        objects[i].move();
     }
+}
+
+function drawobjects(): void {
+    for (let i: number = 0; i < objects.length; i++)
+        objects[i].draw();
+}
 
 
 }
