@@ -10,10 +10,11 @@ namespace L12_Canvas {
 
         
         move(): void {
-            this.y += 4;
+            this.y += 10;
 
             if (this.y > 900) {
                 this.y = Math.random() * (-800 - 200) - 200;
+                this.x = (Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 25))
             }
         }
         

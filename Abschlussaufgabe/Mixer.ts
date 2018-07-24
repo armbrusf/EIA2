@@ -16,7 +16,7 @@ namespace L12_Canvas {
         }
 
         move(): void {
-            const speed = 10 * (600 / 800);
+            const speed = 20 * (600 / 800);
             let movement = 0;
 
             if (this.x > this.dx && this.x - this.dx > speed) movement = -speed;
