@@ -4,7 +4,7 @@ var L12_Canvas;
     let objects = [];
     let nApfel = 15;
     let nLeftApple = 0;
-    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  ->");
+    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  -> oder den Finger um das Spiel an deinem Touchdevice zu zocken ");
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         L12_Canvas.crc2 = canvas.getContext("2d");

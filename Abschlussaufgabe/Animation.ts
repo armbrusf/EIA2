@@ -6,7 +6,7 @@ namespace L12_Canvas {
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
     export let mixer: Mixer;
-    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  ->")
+    alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  -> oder den Finger um das Spiel an deinem Touchdevice zu zocken ")
 
 
 
