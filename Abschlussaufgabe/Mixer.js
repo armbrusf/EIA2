@@ -3,8 +3,8 @@ var L12_Canvas;
     class Mixer extends L12_Canvas.MovingObjects {
         constructor(_x, _y, _r) {
             super(_x, _y);
-            this.mixerWidth = 50;
-            this.mixerHight = 100;
+            this.mixerWidth = 70;
+            this.mixerHight = 10;
             this.x = _x;
             this.y = _y;
             this.r = _r;

@@ -2,8 +2,8 @@ namespace L12_Canvas {
 
     export class Mixer extends MovingObjects {
         dx: number;
-        mixerWidth: number = 50;
-        mixerHight: number = 100;
+        mixerWidth: number = 70;
+        mixerHight: number = 10;
 
         constructor(_x: number, _y: number, _r: number) {
             super(_x, _y);
@@ -39,6 +39,7 @@ namespace L12_Canvas {
         checkIfInside( _x: number, _y: number ): boolean {
             if ( _x > this.x && _x < ( this.x + this.mixerWidth ) && _y > this.y && _y < this.y + this.mixerHight ) {
                 return true;
+                
             }
             return false;
 }

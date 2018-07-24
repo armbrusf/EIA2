@@ -1,7 +1,7 @@
 namespace L12_Canvas {
     window.addEventListener("load", init);
     let objects: MovingObjects[] = [];
-    let nApfel: number = 5;
+    let nApfel: number = 10;
     let nMixer: number = 1;
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
@@ -22,13 +22,13 @@ namespace L12_Canvas {
 
         // Animation 
         for (let i: number = 0; i < nApfel; i++) {
-            let apple: Apple = new Apple(Math.random() * crc2.canvas.width - 50, Math.random() * (-800 - 200) - 200);
+            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) - (crc2.canvas.width - crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
             objects.push(apple);
             apple.r = 2
         }
 
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        clMixer = new Mixer(100, 0, 20);
+        clMixer = new Mixer(100, 600, 20);
         objects.push(clMixer);
         
 

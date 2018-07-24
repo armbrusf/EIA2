@@ -5,7 +5,7 @@ var L12_Canvas;
             super(_x, _y);
         }
         move() {
-            this.y += 2;
+            this.y += 4;
             if (this.y > 900) {
                 this.y = Math.random() * (-800 - 200) - 200;
             }

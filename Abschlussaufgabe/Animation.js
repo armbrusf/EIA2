@@ -2,7 +2,7 @@ var L12_Canvas;
 (function (L12_Canvas) {
     window.addEventListener("load", init);
     let objects = [];
-    let nApfel = 5;
+    let nApfel = 10;
     let nMixer = 1;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -12,12 +12,12 @@ var L12_Canvas;
         canvas.addEventListener("click", insertNewObject);
         // Animation 
         for (let i = 0; i < nApfel; i++) {
-            let apple = new L12_Canvas.Apple(Math.random() * L12_Canvas.crc2.canvas.width - 50, Math.random() * (-800 - 200) - 200);
+            let apple = new L12_Canvas.Apple(Math.random() * ((L12_Canvas.crc2.canvas.width - 50) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50)) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
             objects.push(apple);
             apple.r = 2;
         }
         L12_Canvas.imageData = L12_Canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        L12_Canvas.clMixer = new L12_Canvas.Mixer(100, 0, 20);
+        L12_Canvas.clMixer = new L12_Canvas.Mixer(100, 600, 20);
         objects.push(L12_Canvas.clMixer);
         document.querySelector("body").addEventListener("keydown", function (e) {
             //const event: KeyboardEvent = window.event ? window.event : e;
