@@ -23,7 +23,7 @@ namespace L12_Canvas {
 
         // Animation 
         for (let i: number = 0; i < nApfel; i++) {
-            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
+            let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width -50) - (crc2.canvas.width - crc2.canvas.width + 50)) - (crc2.canvas.width - crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
             apple.r = 2
             objects.push(apple);
         }
@@ -107,7 +107,7 @@ namespace L12_Canvas {
             }
             
             if (nLeftApple >= nApfel){
-              alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie")  
+              alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy")  
             }
         }
 }

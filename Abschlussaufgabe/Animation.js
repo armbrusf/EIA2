@@ -13,7 +13,7 @@ var L12_Canvas;
         canvas.addEventListener("click", insertNewObject);
         // Animation 
         for (let i = 0; i < nApfel; i++) {
-            let apple = new L12_Canvas.Apple(Math.random() * ((L12_Canvas.crc2.canvas.width - 50) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50)) + (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
+            let apple = new L12_Canvas.Apple(Math.random() * ((L12_Canvas.crc2.canvas.width - 50) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50)) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50), Math.random() * (-800 - 200) - 200);
             apple.r = 2;
             objects.push(apple);
         }
@@ -73,7 +73,7 @@ var L12_Canvas;
                 nLeftApple++;
             }
             if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                alert("Glückwunsch du hast 10 Äpfel gesammelt, trinke jetzt deinen leckeren Smoothy");
             }
         }
     }
