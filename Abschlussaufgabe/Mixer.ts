@@ -28,7 +28,7 @@ namespace L12_Canvas {
         }
 
 
-        public move_Mixer(targetX: number): void {
+         move_Mixer(targetX: number): void {
             this.dx = targetX;
         }
 
