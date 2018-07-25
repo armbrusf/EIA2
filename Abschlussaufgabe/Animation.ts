@@ -10,14 +10,12 @@ namespace L12_Canvas {
 
 
 
+
     function init(_event: Event): void {
-        alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  -> oder den Finger um das Spiel an deinem Touchdevice zu zocken ")
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-
-
-
+        
 
         // Funktionsaufrufe
         drawAllBackgrounds();
