@@ -1,3 +1,12 @@
+/*
+Aufgabe: Abschlussaufgabe
+Name: Fabio Armbruster
+Matrikel: 257708
+Datum: 17.07.2018
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
 var L12_Canvas;
 (function (L12_Canvas) {
     window.addEventListener("load", init);
