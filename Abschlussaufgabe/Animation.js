@@ -2,7 +2,7 @@ var L12_Canvas;
 (function (L12_Canvas) {
     window.addEventListener("load", init);
     let objects = [];
-    let nApfel = 15;
+    let nApple = 15;
     let nLeftApple = 0;
     alert("Sammle so schnell wie möglich alle Äpfel! Benutze die Pfeiltasten <-  -> oder den Finger um das Spiel an deinem Touchdevice zu zocken ");
     function init(_event) {
@@ -10,8 +10,8 @@ var L12_Canvas;
         L12_Canvas.crc2 = canvas.getContext("2d");
         // Funktionsaufrufe
         L12_Canvas.drawAllBackgrounds();
-        // Animation 
-        for (let i = 0; i < nApfel; i++) {
+        // neue Äpfel Klassen mit randome Parameter 
+        for (let i = 0; i < nApple; i++) {
             let apple = new L12_Canvas.Apple(Math.random() * ((L12_Canvas.crc2.canvas.width - 50) - (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 50)) + (L12_Canvas.crc2.canvas.width - L12_Canvas.crc2.canvas.width + 25), Math.random() * (-800 - 200) - 200);
             apple.r = 2;
             objects.push(apple);
@@ -63,12 +63,11 @@ var L12_Canvas;
     function animate() {
         window.setTimeout(animate, 25);
         L12_Canvas.crc2.putImageData(L12_Canvas.imageData, 0, 0);
-        moveobjects();
         drawobjects();
+        moveobjects();
         whereIsMyApple();
     }
     function whereIsMyApple() {
-        window.setTimeout(whereIsMyApple, 25);
         for (let i = 0; i < objects.length; i++) {
             let apple = objects[i];
             let inside = L12_Canvas.mixer.checkIfInside(apple.x, apple.y);
@@ -76,8 +75,8 @@ var L12_Canvas;
                 objects.splice(i, 1);
                 nLeftApple++;
             }
-            if (nLeftApple >= nApfel) {
-                alert("Glückwunsch du hast " + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+            if (nLeftApple >= nApple) {
+                alert("Glückwunsch du hast " + nApple + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
             }
         }

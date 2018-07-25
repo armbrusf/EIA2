@@ -1,7 +1,7 @@
 namespace L12_Canvas {
 
     export class Apple extends MovingObjects {
-        r : number;
+        
         
 
         constructor(_x: number, _y: number) {

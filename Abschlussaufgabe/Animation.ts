@@ -1,7 +1,7 @@
 namespace L12_Canvas {
     window.addEventListener("load", init);
     let objects: MovingObjects[] = [];
-    let nApfel: number = 15;
+    let nApple: number = 15;
     let nLeftApple: number = 0
     export let imageData: ImageData;
     export let crc2: CanvasRenderingContext2D;
@@ -22,8 +22,8 @@ namespace L12_Canvas {
 
 
 
-        // Animation 
-        for (let i: number = 0; i < nApfel; i++) {
+        // neue Äpfel Klassen mit randome Parameter 
+        for (let i: number = 0; i < nApple; i++) {
             let apple: Apple = new Apple(Math.random() * ((crc2.canvas.width - 50) - (crc2.canvas.width - crc2.canvas.width + 50)) + (crc2.canvas.width - crc2.canvas.width + 25), Math.random() * (-800 - 200) - 200);
             apple.r = 2
             objects.push(apple);
@@ -103,14 +103,14 @@ namespace L12_Canvas {
         window.setTimeout(animate, 25);
 
         crc2.putImageData(imageData, 0, 0);
-        moveobjects();
+        
         drawobjects();
+        moveobjects();
         whereIsMyApple();
 
     }
 
     function whereIsMyApple(): void {
-        window.setTimeout(whereIsMyApple, 25);
         for (let i: number = 0; i < objects.length; i++) {
             let apple = objects[i];
             let inside = mixer.checkIfInside(apple.x, apple.y);
@@ -122,9 +122,9 @@ namespace L12_Canvas {
                 nLeftApple++;
             }
 
-            if (nLeftApple >= nApfel) {
+            if (nLeftApple >= nApple) {
 
-                alert("Glückwunsch du hast " + nApfel + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
+                alert("Glückwunsch du hast " + nApple + " Äpfel gesammelt, trinke jetzt deinen leckeren Smoothie");
                 location.reload(true);
 
             }
